@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DashNotifier</string>
+    <string name="service_name">DashNotifier</string>
+    <string name="extension_title">DashNotifier 1</string>
+    <string name="extension_title2">DashNotifier 2</string>
+    <string name="extension_title3">DashNotifier 3</string>
+    <string name="extension_title4">DashNotifier 4</string>
+    <string name="extension_title5">DashNotifier 5</string>
+    <string name="extension_title6">DashNotifier 6</string>
+    <string name="extension_title7">DashNotifier 7</string>
+    <string name="notification_access_warn">Notification access is disabled. Tap the red alert symbol above to enable Notification access</string>
+    <string name="notification_access_ok">Notification access is enabled</string>
+    <string name="extension_description">Display notifications in Dashclock Widget</string>
+    <string name="title_settings">DashNotifier Settings</string>
+    <string name="title_list_preference">Choose Application</string>
+    <string name="summary_list_preference">Application whose notification is displayed in DashClock</string>
+    <string name="screen_preference_title">Turn screen on</string>
+    <string name="screen_setting_on">Screen is turned on when notification is posted</string>
+    <string name="screen_setting_off">Screen is not turned on arrival of notification</string>
+    <string name="screen_behavior_preference">Screen behavior</string>
+    <string name="proximity_preference">Check proximity</string>
+    <string name="proximity_preference_summary">"Check phone's proximity sensor before turning screen on"</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_app_select">Choose Application</string>
+    <string name="proximityThreshold">4.0</string>
+    <string name="unlock_on">Notification is cleared from DashClock on unlocking device</string>
+    <string name="unlock_off">Notification is retained in DashClock until cleared from Notification shade</string>
+    <string name="unlock_title">Clear on unlock</string>
+    <string name="content_on_summary">Notification content, title and count are shown</string>
+    <string name="content_off_summary">Only count and notification title are shown</string>
+    <string name="content_title">Show notification content</string>
+    <string name="setting_title1">Dashnotifier 1 Settings</string>
+    <string name="setting_title2">Dashnotifier 2 Settings</string>
+    <string name="setting_title3">Dashnotifier 3 Settings</string>
+    <string name="setting_title4">Dashnotifier 4 Settings</string>
+    <string name="setting_title5">Dashnotifier 5 Settings</string>
+    <string name="setting_title6">Dashnotifier 6 Settings</string>
+    <string name="setting_title7">Dashnotifier 7 Settings</string>
+    <string name="icon_pref_summary">Icon displayed in DashClock</string>
+    <string name="action_service">Service status</string>
+    <string name="always_off_summary">Only showed when there are unread notifications</string>
+    <string name="always_on_summary">This app persists in DashClock</string>
+    <string name="always_title">Always show</string>
+    <string name="always_count_off_summary">Count not shown when no notifications</string>
+    <string name="always_count_on_summary">Count (0) shown when no notifications</string>
+    <string name="always_count_title">Show count</string>
+    <string name="show_ongoing_off_summary">Ongoing notifications from this app are not shown</string>
+    <string name="show_ongoing_on_summary">Ongoing notifications from this app are shown</string>
+    <string name="show_ongoing_title">Show ongoing notifications</string>
+    <string name="text_pref_summary">Leave it blank for default behavior</string>
+    <string name="text_pref_title">Extension title text</string>
+    <string name="icon_pref_title">Choose icon</string>
+    <string name="icon_picker_title">Choose icon source</string>
+    <string name="icon_picker_dn_icons_title">DashNotifier icons</string>
+    <string name="icon_picker_gallery_title">Gallery</string>
+    <string name="icon_picker_pack_title">Icon pack</string>
+    <string name="icon_picker_choose_icon_title">Choose icon</string>
+    <string name="dn_provider_perm_desc">Allow access to notification stored by DashNotifier\'s content provider</string>
+    <string name="dn_provider_perm_label">DashNotifier content provider access</string>
+    <string name="content_preference">Content</string>
+    <string name="dialog_title_list_preference">Extension title preference</string>
+    <string name="ext_title_list_preference">Extension title format</string>
+    <string name="stack_on_summary">Notification text is stacked, old content is shown</string>
+    <string name="stack_off_summary">Only latest notification is shown</string>
+    <string name="stack_title">Stack notification content</string>
+    <string name="close">Close</string>
+    <string name="other_pref">Other</string>
+    <string name="about_title">About DashNotifier</string>
+    <string name="market_title">View in Google Play</string>
+    <string name="market_summary">Find this useful or have feedback? Please rate DashNotifier in Google Play</string>
+    
+    <string name="about_body"><![CDATA[
+        Copyright 2013 Umang Vipul. DashNotifier is released under MIT license.<br>
+        <a href="https://github.com/umanx/dashnotifier">Github</a><br><br>
+        
+        Many thanks to these awesome people for translating:<br>
+        <b>Massimiliano Guidi</b><br>
+        <i>Italian translation</i><br><br>
+        <b>Javier García Olivares</b><br>
+        <i>Spanish translation</i><br><br>
+        Many thanks to these open source projects:<br>
+        <b><a href="https://code.google.com/p/dashclock/">DashClock Widget</a></b><br>
+        <i>by Roman Nurik</i><br><br>
+        <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br>
+        <i>by Benjamin Weiss</i>
+    ]]></string>
+    
+    <!-- Do not translate the following-->
+    <string name="default_title_pref" translatable="false">app_count</string>
+    <string name="app_name_and_version" translatable="false"><![CDATA[
+        <b>DashNotifier</b>&nbsp;<font color="#888888">v%1$s</font>
+    ]]></string>
+    
+</resources>

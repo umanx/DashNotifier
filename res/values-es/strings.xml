@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">DashNotifier</string>
+    <string name="service_name">DashNotifier</string>
+    <string name="extension_title">DashNotifier 1</string>
+    <string name="extension_title2">DashNotifier 2</string>
+    <string name="extension_title3">DashNotifier 3</string>
+    <string name="extension_title4">DashNotifier 4</string>
+    <string name="extension_title5">DashNotifier 5</string>
+    <string name="extension_title6">DashNotifier 6</string>
+    <string name="extension_title7">DashNotifier 7</string>
+    <string name="notification_access_warn">No has permitido el acceso a las notificaciones. Toca el icono de alerta rojo de arriba para activar el permiso a las notificaciones.</string>
+    <string name="notification_access_ok">Has permitido el acceso a las notificaciones</string>
+    <string name="extension_description">Muestra notificaciones en DashClock Widget</string>
+    <string name="title_settings">Ajustes de DashNotifier</string>
+    <string name="title_list_preference">Elige la aplicación</string>
+    <string name="summary_list_preference">Aplicación cuya notificación sale en DashClock</string>
+    <string name="screen_preference_title">Encender la pantalla</string>
+    <string name="screen_setting_on">Enciende la pantalla cuando llega una notificación</string>
+    <string name="screen_setting_off">La pantalla no se enciende cuando llegue una notificación</string>
+    <string name="screen_behavior_preference">Comportamiento de la pantalla</string>
+    <string name="proximity_preference">Comprobar la proximidad</string>
+    <string name="proximity_preference_summary">Comprueba el sensor de proximidad antes de encender la pantalla</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="hello_world">¡Hola Mundo!</string>
+    <string name="title_activity_app_select">Elegir aplicación</string>
+    <string name="proximityThreshold">4.0</string>
+    <string name="unlock_on">La notificación desaparecerá de DashClock cuando desbloquees el móvil</string>
+    <string name="unlock_off">La notificación se mantiene en DashClock hasta que la quites de la Barra de Notificaciones</string>
+    <string name="unlock_title">Quitar la notificación al desbloquar</string>
+    <string name="content_on_summary">Se muestra el contenido, título y número de la notificación</string>
+    <string name="content_off_summary">Sólo se muestra el título y el número de la notificación</string>
+    <string name="content_title">Mostrar el contenido de la aplicación</string>
+    <string name="setting_title1">Ajustes de DashNotifier 1</string>
+    <string name="setting_title2">Ajustes de DashNotifier 2</string>
+    <string name="setting_title3">Ajustes de DashNotifier 3</string>
+    <string name="setting_title4">Ajustes de DashNotifier 4</string>
+    <string name="setting_title5">Ajustes de DashNotifier 5</string>
+    <string name="setting_title6">Ajustes de DashNotifier 6</string>
+    <string name="setting_title7">Ajustes de DashNotifier 7</string>
+    <string name="icon_pref_summary">Icono que se mostrará</string>
+    <string name="action_service">Estado del servicio</string>
+    <string name="always_off_summary">Mostrar sólo cuando hay notificaciones sin leer</string>
+    <string name="always_on_summary">La aplicación se mantiene en DashClock</string>
+    <string name="always_title">Mostrar siempre</string>
+    <string name="always_count_off_summary">El contador no se muestra cuando no hay notificaciones</string>
+    <string name="always_count_on_summary">Mostrar el contador a cero cuando no haya notificaciones</string>
+    <string name="always_count_title">Mostrar contador</string>
+    <string name="show_ongoing_off_summary">Las notificaciones en curso no se muestran</string>
+    <string name="show_ongoing_on_summary">Las notificaciones en curso de esta aplicación se muestran</string>
+    <string name="show_ongoing_title">Mostrar notificaciones en curso</string>
+    <string name="text_pref_summary">Déjalo vacío para que se comporte de manera predeterminada</string>
+    <string name="text_pref_title">Título de la extensión</string>
+    <string name="icon_pref_title">Elegir icono</string>
+    <string name="icon_picker_title">Elige la fuente del icono</string>
+    <string name="icon_picker_dn_icons_title">Iconos de DashNotifier</string>
+    <string name="icon_picker_gallery_title">Galería</string>
+    <string name="icon_picker_pack_title">Paquete de iconos</string>
+    <string name="icon_picker_choose_icon_title">Elegir icono</string>
+    <string name="dn_provider_perm_desc">Permitir acceso a la notificación almacenada por el proveedor de contenido de DashNotifier</string>
+    <string name="dn_provider_perm_label">Acceso al proveedor de contenido de DashNotifier</string>
+    <string name="content_preference">Contenido</string>
+    <string name="dialog_title_list_preference">Ajustes del título de la extensión</string>
+    <string name="ext_title_list_preference">Formato del título de la extensión</string>
+    <string name="stack_on_summary">Se apilan las notificaciones (se muestran las notificaciones antiguas)</string>
+    <string name="stack_off_summary">Sólo las últimas notificaciones se muestran</string>
+    <string name="stack_title">Contenido de las notificaciones apiladas</string>
+    <string name="close">Cerrar</string>
+    <string name="other_pref">Otros</string>
+    <string name="about_title">Acerca de DashNotifier</string>
+    <string name="market_title">Ver en Google Play</string>
+    <string name="market_summary">¿Has encontrado esta aplicación útil o nos quieres hacer comentarios? Por favor vótanos en Google Play</string>
+    <string name="about_body"><![CDATA[Copyright 2013 Umang Vipul. DashNotifier está bajo la licencia MIT.<br> 
+        <a href="https://github.com/umanx/dashnotifier">Github</a><br><br> 
+         
+       Muchas gracias a los traductores:<br> 
+        <b>Massimiliano Guidi</b><br> 
+        <i>Italiano</i><br><br> 
+        <b>Javier García Olivares</b><br> 
+        <i>Español</i><br><br> 
+        Muchas gracias a estos proyectos de código abierto:<br> 
+        <b><a href="https://code.google.com/p/dashclock/">DashClock Widget</a></b><br> 
+        <i>por Roman Nurik</i><br><br> 
+        <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br> 
+        <i>por Benjamin Weiss</i> ]]></string>
+    <!-- Do not translate the followin -->
+    <string name="default_title_pref" translatable="false"></string>
+    <string name="app_name_and_version" translatable="false"><![CDATA[]]></string>
+</resources>

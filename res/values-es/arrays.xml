@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_list_preference">
+        <item>Nombre de la aplicación, sin contador</item>
+        <item>Nombre de la aplicación con contador</item>
+        <item>Personalizado, sin contador</item>
+        <item>Personalizado con contador</item>
+        <item>Título de la notificación, sin contador</item>
+        <item>Título de la notificación con contador</item>
+    </string-array>
+    
+</resources>

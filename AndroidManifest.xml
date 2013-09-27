@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.umang.dashnotifier"
+    android:versionCode="8"
+    android:versionName="0.32" >
+
+    <permission android:description="@string/dn_provider_perm_desc"
+            android:icon="@drawable/ic_stat_dn_perm"
+            android:label="@string/dn_provider_perm_label"
+            android:name="com.umang.dashnotifier.CP_PERMISSION"
+            android:protectionLevel= "signature"/>
+    
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.umang.dashnotifier.CP_PERMISSION" />
+    
+    <uses-sdk android:targetSdkVersion="18" android:minSdkVersion="18"/>
+
+    
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <provider
+            android:name="com.umang.dashnotifier.provider.NotificationProvider"
+            android:authorities="com.umang.provider.dashnotifier"
+            android:permission="com.umang.dashnotifier.CP_PERMISSION"
+            android:exported="true" >
+            <grant-uri-permission android:pathPattern=".*" />
+        </provider>
+
+        <service
+            android:name="com.umang.dashnotifier.DashNotificationListener"
+            android:label="@string/service_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension"
+            android:label="@string/extension_title"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension2"
+            android:label="@string/extension_title2"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity2" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension3"
+            android:label="@string/extension_title3"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity3" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension4"
+            android:label="@string/extension_title4"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity4" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension5"
+            android:label="@string/extension_title5"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity5" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension6"
+            android:label="@string/extension_title6"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity6" />
+        </service>
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension7"
+            android:label="@string/extension_title7"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity7" />
+        </service>
+
+        <activity
+            android:name=".DashNotifierSettingsActivity"
+            android:exported="true"
+            android:label="@string/setting_title1" />
+        <activity
+            android:name=".DashNotifierSettingsActivity2"
+            android:exported="true"
+            android:label="@string/setting_title2" />
+        <activity
+            android:name=".DashNotifierSettingsActivity3"
+            android:exported="true"
+            android:label="@string/setting_title3" />
+        <activity
+            android:name=".DashNotifierSettingsActivity4"
+            android:exported="true"
+            android:label="@string/setting_title4" />
+        <activity
+            android:name=".DashNotifierSettingsActivity5"
+            android:exported="true"
+            android:label="@string/setting_title5" />
+        <activity
+            android:name=".DashNotifierSettingsActivity6"
+            android:exported="true"
+            android:label="@string/setting_title6" />
+        <activity
+            android:name=".DashNotifierSettingsActivity7"
+            android:exported="true"
+            android:label="@string/setting_title7" />
+        <activity
+            android:name=".AppSelectActivity"
+            android:exported="true"
+            android:label="@string/title_activity_app_select" />
+
+        <receiver android:name="UnlockReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

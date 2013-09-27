@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="icon_labels" translatable="false">
+		<item>BBM</item>
+        <item>ChatOn</item>
+        <item>Email</item>
+        <item>Facebook</item>
+        <item>Gmail</item>
+        <item>Google+</item>
+        <item>Google Search</item>
+        <item>Google Voice</item>
+        <item>Hangouts</item>
+        <item>imo</item>
+        <item>Instagram</item>
+        <item>Kik</item>
+        <item>Line</item>
+        <item>LinkedIn</item>
+        <item>Message</item>
+        <item>Messenger</item>
+        <item>Play</item>
+        <item>Skype</item>
+        <item>Snapchat</item>
+        <item>Tango</item>
+        <item>Threema</item>
+        <item>Twitter</item>
+        <item>Viber</item>
+        <item>Voxsci</item>
+        <item>Whatsapp</item>
+        <item>Words</item>
+    </string-array>
+
+    <array name="icons" translatable="false">
+		<item>@drawable/ic_bbm</item>
+        <item>@drawable/ic_chaton</item>
+        <item>@drawable/ic_email</item>
+        <item>@drawable/ic_facebook</item>
+        <item>@drawable/ic_gmail</item>
+        <item>@drawable/ic_gplus</item>
+        <item>@drawable/ic_gsearch</item>
+        <item>@drawable/ic_gvoice</item>
+        <item>@drawable/ic_hangouts</item>
+        <item>@drawable/ic_imo</item>
+        <item>@drawable/ic_instagram</item>
+        <item>@drawable/ic_kik</item>
+        <item>@drawable/ic_line</item>
+        <item>@drawable/ic_linkedin</item>
+        <item>@drawable/ic_message</item>
+        <item>@drawable/ic_messenger</item>
+        <item>@drawable/ic_play</item>
+        <item>@drawable/ic_skype</item>
+        <item>@drawable/ic_snapchat</item>
+        <item>@drawable/ic_tango</item>
+        <item>@drawable/ic_threema</item>
+        <item>@drawable/ic_twitter</item>
+        <item>@drawable/ic_viber</item>
+        <item>@drawable/ic_voxsci</item>
+        <item>@drawable/ic_whatsapp</item>
+        <item>@drawable/ic_words</item>
+    </array>
+
+    <string-array name="entries_list_preference">
+        <item>App name, no count</item>
+        <item>App name with count</item>
+        <item>Custom, no count</item>
+        <item>Custom with count</item>
+        <item>Notification title, no count</item>
+        <item>Notification title with count</item>
+    </string-array>
+    <string-array name="entryvalues_list_preference">
+        <item>app_nocount</item>
+        <item>app_count</item>
+        <item>custom_nocount</item>
+        <item>custom_count</item>
+        <item>notif_nocount</item>
+        <item>notif_count</item>
+    </string-array>
+
+</resources>
