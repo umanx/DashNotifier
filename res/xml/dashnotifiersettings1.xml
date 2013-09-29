@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceScreen
+        <PreferenceScreen
         android:key="extapp1"
         android:summary="@string/summary_list_preference"
         android:title="@string/title_list_preference" >
@@ -21,6 +21,11 @@
         android:summary="@string/icon_pref_summary"
         android:title="@string/icon_pref_title" />
 
+    <com.google.android.apps.dashclock.configuration.AppChooserPreference
+        android:key="click_intent1"
+        android:title="@string/click_behave_title" />
+    
+    
     <ListPreference
         android:defaultValue="@string/default_title_pref"
         android:dialogTitle="@string/dialog_title_list_preference"

@@ -8,6 +8,7 @@
         <item>Facebook</item>
         <item>Gmail</item>
         <item>Google+</item>
+        <item>Google Keep</item>
         <item>Google Search</item>
         <item>Google Voice</item>
         <item>Hangouts</item>
@@ -37,6 +38,7 @@
         <item>@drawable/ic_facebook</item>
         <item>@drawable/ic_gmail</item>
         <item>@drawable/ic_gplus</item>
+        <item>@drawable/ic_keep</item>
         <item>@drawable/ic_gsearch</item>
         <item>@drawable/ic_gvoice</item>
         <item>@drawable/ic_hangouts</item>

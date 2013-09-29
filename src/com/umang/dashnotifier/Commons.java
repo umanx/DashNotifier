@@ -4,6 +4,7 @@ import java.io.File;
 
 import com.google.android.apps.dashclock.api.DashClockExtension;
 import com.google.android.apps.dashclock.api.ExtensionData;
+import com.google.android.apps.dashclock.configuration.AppChooserPreference;
 import com.umang.dashnotifier.provider.NotifSQLiteHelper;
 import com.umang.dashnotifier.provider.NotificationProvider;
 import com.umang.dashnotifier.provider.NotificationStore;
@@ -53,7 +54,10 @@ public class Commons {
 					clickIntent.setAction(Intent.ACTION_MAIN);
 					clickIntent.addCategory(Intent.CATEGORY_HOME);
 					clickIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				}
+				}finally {
+					clickIntent = AppChooserPreference.getIntentValue(preferences.getString
+						("click_intent"+extNumber,"" ), clickIntent);
+		        }
 				result.close();
 
 				extensionData = new ExtensionData().visible(true).status("0")
@@ -95,7 +99,10 @@ public class Commons {
 				clickIntent.setAction(Intent.ACTION_MAIN);
 				clickIntent.addCategory(Intent.CATEGORY_HOME);
 				clickIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			}
+			}finally {
+					clickIntent = AppChooserPreference.getIntentValue(preferences.getString
+						("click_intent"+extNumber,"" ), clickIntent);
+		    }
 			if (preferences.getBoolean("content_on" + extNumber, false)){
 				if (mPreferences.getString("ext_title_preference"
 						+ extNumber, "app_count").contains("notif"))

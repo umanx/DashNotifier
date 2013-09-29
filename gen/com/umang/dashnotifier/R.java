@@ -15,6 +15,30 @@ public final class R {
         public static final int icons=0x7f050001;
     }
     public static final class attr {
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int allowUseDefault=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int choices=0x7f010002;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int itemLayout=0x7f010001;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int numColumns=0x7f010003;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
@@ -24,36 +48,38 @@ public final class R {
         public static final int shortcut_picker_left_padding=0x7f060002;
     }
     public static final class drawable {
-        public static final int ic_action_service_bad=0x7f020000;
-        public static final int ic_action_service_good=0x7f020001;
-        public static final int ic_bbm=0x7f020002;
-        public static final int ic_chaton=0x7f020003;
-        public static final int ic_email=0x7f020004;
-        public static final int ic_facebook=0x7f020005;
-        public static final int ic_gmail=0x7f020006;
-        public static final int ic_gplus=0x7f020007;
-        public static final int ic_gsearch=0x7f020008;
-        public static final int ic_gvoice=0x7f020009;
-        public static final int ic_hangouts=0x7f02000a;
-        public static final int ic_imo=0x7f02000b;
-        public static final int ic_instagram=0x7f02000c;
-        public static final int ic_kik=0x7f02000d;
-        public static final int ic_launcher=0x7f02000e;
-        public static final int ic_line=0x7f02000f;
-        public static final int ic_linkedin=0x7f020010;
-        public static final int ic_message=0x7f020011;
-        public static final int ic_messenger=0x7f020012;
-        public static final int ic_play=0x7f020013;
-        public static final int ic_skype=0x7f020014;
-        public static final int ic_snapchat=0x7f020015;
-        public static final int ic_stat_dn_perm=0x7f020016;
-        public static final int ic_tango=0x7f020017;
-        public static final int ic_threema=0x7f020018;
-        public static final int ic_twitter=0x7f020019;
-        public static final int ic_viber=0x7f02001a;
-        public static final int ic_voxsci=0x7f02001b;
-        public static final int ic_whatsapp=0x7f02001c;
-        public static final int ic_words=0x7f02001d;
+        public static final int ab_transparent_dark_holo=0x7f020000;
+        public static final int ic_action_service_bad=0x7f020001;
+        public static final int ic_action_service_good=0x7f020002;
+        public static final int ic_bbm=0x7f020003;
+        public static final int ic_chaton=0x7f020004;
+        public static final int ic_email=0x7f020005;
+        public static final int ic_facebook=0x7f020006;
+        public static final int ic_gmail=0x7f020007;
+        public static final int ic_gplus=0x7f020008;
+        public static final int ic_gsearch=0x7f020009;
+        public static final int ic_gvoice=0x7f02000a;
+        public static final int ic_hangouts=0x7f02000b;
+        public static final int ic_imo=0x7f02000c;
+        public static final int ic_instagram=0x7f02000d;
+        public static final int ic_keep=0x7f02000e;
+        public static final int ic_kik=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int ic_line=0x7f020011;
+        public static final int ic_linkedin=0x7f020012;
+        public static final int ic_message=0x7f020013;
+        public static final int ic_messenger=0x7f020014;
+        public static final int ic_play=0x7f020015;
+        public static final int ic_skype=0x7f020016;
+        public static final int ic_snapchat=0x7f020017;
+        public static final int ic_stat_dn_perm=0x7f020018;
+        public static final int ic_tango=0x7f020019;
+        public static final int ic_threema=0x7f02001a;
+        public static final int ic_twitter=0x7f02001b;
+        public static final int ic_viber=0x7f02001c;
+        public static final int ic_voxsci=0x7f02001d;
+        public static final int ic_whatsapp=0x7f02001e;
+        public static final int ic_words=0x7f02001f;
     }
     public static final class id {
         public static final int about_body=0x7f070004;
@@ -61,11 +87,18 @@ public final class R {
         public static final int action_settings=0x7f070002;
         public static final int app_name_and_version=0x7f070003;
         public static final int appitem=0x7f070000;
+        public static final int apps_list=0x7f070006;
+        public static final int pager=0x7f070005;
+        public static final int shortcuts_list=0x7f070007;
+        public static final int tab=0x7f070008;
     }
     public static final class layout {
         public static final int activity_app_select=0x7f030000;
         public static final int app_item=0x7f030001;
         public static final int dialog_about=0x7f030002;
+        public static final int dialog_app_chooser=0x7f030003;
+        public static final int list_item_intent=0x7f030004;
+        public static final int tab=0x7f030005;
     }
     public static final class menu {
         public static final int action_menu=0x7f0a0000;
@@ -73,7 +106,7 @@ public final class R {
         public static final int dash_notifier_settings_activity2=0x7f0a0002;
     }
     public static final class string {
-        public static final int about_body=0x7f080046;
+        public static final int about_body=0x7f08004a;
         public static final int about_title=0x7f080043;
         public static final int action_service=0x7f080027;
         public static final int action_settings=0x7f080015;
@@ -84,16 +117,16 @@ public final class R {
         public static final int always_on_summary=0x7f080029;
         public static final int always_title=0x7f08002a;
         public static final int app_name=0x7f080000;
-        public static final int app_name_and_version=0x7f080048;
+        public static final int app_name_and_version=0x7f08004c;
+        public static final int click_behave_title=0x7f080049;
         public static final int close=0x7f080041;
         public static final int content_off_summary=0x7f08001d;
         public static final int content_on_summary=0x7f08001c;
         public static final int content_preference=0x7f08003b;
         public static final int content_title=0x7f08001e;
         /**  Do not translate the following
- Do not translate the followin 
          */
-        public static final int default_title_pref=0x7f080047;
+        public static final int default_title_pref=0x7f08004b;
         public static final int dialog_title_list_preference=0x7f08003c;
         public static final int dn_provider_perm_desc=0x7f080039;
         public static final int dn_provider_perm_label=0x7f08003a;
@@ -113,14 +146,13 @@ public final class R {
         public static final int icon_picker_pack_title=0x7f080037;
         public static final int icon_picker_title=0x7f080034;
         public static final int icon_pref_summary=0x7f080026;
-        /**  String for IconPicker 
-         */
         public static final int icon_pref_title=0x7f080033;
         public static final int market_summary=0x7f080045;
         public static final int market_title=0x7f080044;
         public static final int notification_access_ok=0x7f08000a;
         public static final int notification_access_warn=0x7f080009;
         public static final int other_pref=0x7f080042;
+        public static final int pref_shortcut_default=0x7f080048;
         public static final int proximityThreshold=0x7f080018;
         public static final int proximity_preference=0x7f080013;
         public static final int proximity_preference_summary=0x7f080014;
@@ -146,8 +178,10 @@ public final class R {
         public static final int text_pref_summary=0x7f080031;
         public static final int text_pref_title=0x7f080032;
         public static final int title_activity_app_select=0x7f080017;
+        public static final int title_apps=0x7f080046;
         public static final int title_list_preference=0x7f08000d;
         public static final int title_settings=0x7f08000c;
+        public static final int title_shortcuts=0x7f080047;
         public static final int unlock_off=0x7f08001a;
         public static final int unlock_on=0x7f080019;
         public static final int unlock_title=0x7f08001b;
@@ -157,7 +191,7 @@ public final class R {
         public static final int AppTheme=0x7f090001;
     }
     public static final class xml {
-        public static final int dashnotifiersettings=0x7f040000;
+        public static final int dashnotifiersettings1=0x7f040000;
         public static final int dashnotifiersettings2=0x7f040001;
         public static final int dashnotifiersettings3=0x7f040002;
         public static final int dashnotifiersettings4=0x7f040003;
@@ -165,4 +199,84 @@ public final class R {
         public static final int dashnotifiersettings6=0x7f040005;
         public static final int dashnotifiersettings7=0x7f040006;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a AppChooserPreference.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #AppChooserPreference_allowUseDefault com.umang.dashnotifier:allowUseDefault}</code></td><td></td></tr>
+           </table>
+           @see #AppChooserPreference_allowUseDefault
+         */
+        public static final int[] AppChooserPreference = {
+            0x7f010000
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.umang.dashnotifier.R.attr#allowUseDefault}
+          attribute's value can be found in the {@link #AppChooserPreference} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.umang.dashnotifier:allowUseDefault
+        */
+        public static final int AppChooserPreference_allowUseDefault = 0;
+        /** Attributes that can be used with a ColorPreference.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ColorPreference_choices com.umang.dashnotifier:choices}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPreference_itemLayout com.umang.dashnotifier:itemLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPreference_numColumns com.umang.dashnotifier:numColumns}</code></td><td></td></tr>
+           </table>
+           @see #ColorPreference_choices
+           @see #ColorPreference_itemLayout
+           @see #ColorPreference_numColumns
+         */
+        public static final int[] ColorPreference = {
+            0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.umang.dashnotifier.R.attr#choices}
+          attribute's value can be found in the {@link #ColorPreference} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.umang.dashnotifier:choices
+        */
+        public static final int ColorPreference_choices = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.umang.dashnotifier.R.attr#itemLayout}
+          attribute's value can be found in the {@link #ColorPreference} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.umang.dashnotifier:itemLayout
+        */
+        public static final int ColorPreference_itemLayout = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.umang.dashnotifier.R.attr#numColumns}
+          attribute's value can be found in the {@link #ColorPreference} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.umang.dashnotifier:numColumns
+        */
+        public static final int ColorPreference_numColumns = 2;
+    };
 }

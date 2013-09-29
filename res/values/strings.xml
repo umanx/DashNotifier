@@ -70,10 +70,13 @@
     <string name="about_title">About DashNotifier</string>
     <string name="market_title">View in Google Play</string>
     <string name="market_summary">Find this useful or have feedback? Please rate DashNotifier in Google Play</string>
-    
+    <string name="title_apps">Apps</string>
+    <string name="title_shortcuts">Shortcuts</string>
+    <string name="pref_shortcut_default">Default</string>
+    <string name="click_behave_title">Click behavior</string>
     <string name="about_body"><![CDATA[
         Copyright 2013 Umang Vipul. DashNotifier is released under MIT license.<br>
-        <a href="https://github.com/umanx/dashnotifier">Github</a><br><br>
+        <a href="https://github.com/umanx/DashNotifier">Github</a><br><br>
         
         Many thanks to these awesome people for translating:<br>
         <b>Massimiliano Guidi</b><br>

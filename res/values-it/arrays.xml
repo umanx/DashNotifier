@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="entries_list_preference">
+        <item>Nome dell\'app senza conteggio</item>
+        <item>Nome dell\'app con conteggio</item>
+        <item>Personalizzato senza conteggio</item>
+        <item>Personalizzato con conteggio</item>
+        <item>Titolo senza conteggio</item>
+        <item>Titolo con conteggio</item>
+    </string-array>
+    
+</resources>
