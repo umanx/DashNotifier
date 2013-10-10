@@ -9,6 +9,9 @@
     <string name="extension_title5">DashNotifier 5</string>
     <string name="extension_title6">DashNotifier 6</string>
     <string name="extension_title7">DashNotifier 7</string>
+    <string name="extension_title8">DashNotifier 8</string>
+    <string name="extension_title9">DashNotifier 9</string>
+    <string name="extension_title10">DashNotifier 10</string>
     <string name="notification_access_warn">Notification access is disabled. Tap the red alert symbol above to enable Notification access</string>
     <string name="notification_access_ok">Notification access is enabled</string>
     <string name="extension_description">Display notifications in Dashclock Widget</string>
@@ -38,6 +41,9 @@
     <string name="setting_title5">Dashnotifier 5 Settings</string>
     <string name="setting_title6">Dashnotifier 6 Settings</string>
     <string name="setting_title7">Dashnotifier 7 Settings</string>
+    <string name="setting_title8">Dashnotifier 8 Settings</string>
+    <string name="setting_title9">Dashnotifier 9 Settings</string>
+    <string name="setting_title10">Dashnotifier 10 Settings</string>
     <string name="icon_pref_summary">Icon displayed in DashClock</string>
     <string name="action_service">Service status</string>
     <string name="always_off_summary">Only showed when there are unread notifications</string>
@@ -74,22 +80,26 @@
     <string name="title_shortcuts">Shortcuts</string>
     <string name="pref_shortcut_default">Default</string>
     <string name="click_behave_title">Click behavior</string>
+    <string name="search_title">Search Applications</string>
+    <string name="search_hint">Application name</string>
     <string name="about_body"><![CDATA[
         Copyright 2013 Umang Vipul. DashNotifier is released under MIT license.<br>
         <a href="https://github.com/umanx/DashNotifier">Github</a><br><br>
         
-        Many thanks to these awesome people for translating:<br>
+        Many thanks to these awesome people:<br>
         <b>Massimiliano Guidi</b><br>
-        <i>Italian translation</i><br><br>
+        <i>for Italian translation</i><br><br>
         <b>Javier García Olivares</b><br>
-        <i>Spanish translation</i><br><br>
+        <i>for Spanish translation</i><br><br>
+        <b><a href="https://plus.google.com/u/0/107094547764562810063/">Dima Skvarskyi</a></b><br>
+        <i>for the application icon</i><br><br>
         Many thanks to these open source projects:<br>
         <b><a href="https://code.google.com/p/dashclock/">DashClock Widget</a></b><br>
         <i>by Roman Nurik</i><br><br>
         <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br>
         <i>by Benjamin Weiss</i>
     ]]></string>
-    
+    <string name="accessiblity_description">DashNotifier Accessibility service to read notifications. Note that other accessibility events are not monitored and no data is sent anywhere other than DashClock</string>
     <!-- Do not translate the following-->
     <string name="default_title_pref" translatable="false">app_count</string>
     <string name="app_name_and_version" translatable="false"><![CDATA[

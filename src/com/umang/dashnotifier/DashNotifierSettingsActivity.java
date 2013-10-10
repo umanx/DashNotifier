@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 
 
 public class DashNotifierSettingsActivity extends AbstractSettings {
@@ -23,7 +24,7 @@ public class DashNotifierSettingsActivity extends AbstractSettings {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		editor = preferences.edit();
 		// Display the fragment as the main content.
@@ -32,6 +33,16 @@ public class DashNotifierSettingsActivity extends AbstractSettings {
 	    mFragmentManager.beginTransaction().replace(android.R.id.content, mPrefsFragment,"pref").commit();
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	    // Respond to the action bar's Up/Home button
+	    case android.R.id.home:
+	        finish();
+	        return true;
+	    }
+	    return super.onOptionsItemSelected(item);
+	}
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) { 

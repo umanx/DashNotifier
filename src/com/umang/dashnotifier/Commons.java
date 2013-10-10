@@ -183,7 +183,7 @@ public class Commons {
 						+ extNumber, "");
 				if (TextUtils.isEmpty(temp))
 					title = mPm.getApplicationLabel(
-							mPm.getApplicationInfo(packageName, 0)).toString() + Integer.toString(result.getInt(10));
+							mPm.getApplicationInfo(packageName, 0)).toString() + " ("+Integer.toString(count) +")";
 				else
 					title = temp + " ("+Integer.toString(count) +")";
 

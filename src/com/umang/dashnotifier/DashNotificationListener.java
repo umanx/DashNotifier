@@ -234,6 +234,15 @@ public class DashNotificationListener extends NotificationListenerService
 		else if (packageName.equals(preferences.getString("extapp7",
 				"dummy.xx.name")))
 			return 7;
+		else if (packageName.equals(preferences.getString("extapp8",
+				"dummy.xx.name")))
+			return 8;
+		else if (packageName.equals(preferences.getString("extapp9",
+				"dummy.xx.name")))
+			return 9;
+		else if (packageName.equals(preferences.getString("extapp10",
+				"dummy.xx.name")))
+			return 10;
 		else
 			return -1;
 	}
@@ -316,7 +325,7 @@ public class DashNotificationListener extends NotificationListenerService
 
 	            
 	                if (type != null && (type == 9 || type == 10) && value != null){
-	                	System.out.println("Type: " + Integer.toString(type) + " Value: " + value.toString());
+	                	//System.out.println("Type: " + Integer.toString(type) + " Value: " + value.toString());
 	                	if ( !notifText.contains(value.toString()) )
 	                		notifText.add(value.toString());
 	                }

@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -61,7 +62,7 @@ public class AppListFragment extends ListFragment {
 	}
 
 	private void startNewAsyncTask() {
-		ListAppTask asyncTask = new ListAppTask(this);
+		ListAppTask asyncTask = new ListAppTask(this, getActivity());
 		asyncTask.execute();
 	}
 
@@ -69,9 +70,11 @@ public class AppListFragment extends ListFragment {
 		private ArrayList<String> sections = new ArrayList<String>();
         private ArrayList<Integer> positions = new ArrayList<Integer>();
 		private WeakReference<AppListFragment> fragmentWeakRef;
+		private Context mContext;
 		
-		private ListAppTask(AppListFragment fragment) {
+		private ListAppTask(AppListFragment fragment, Context context) {
 			this.fragmentWeakRef = new WeakReference<AppListFragment>(fragment);
+			this.mContext = context;
 		}
 
 		@Override
@@ -124,7 +127,7 @@ public class AppListFragment extends ListFragment {
 		protected void onPostExecute(List<PackageItem> result) {
 			data.clear();
 			data.addAll(result);
-			adapter = new PackageAdapter(getActivity(), data);
+			adapter = new PackageAdapter(mContext, data);
 			adapter.notifyDataSetChanged();
 			if (this.fragmentWeakRef.get() != null) {
 				setListAdapter(adapter);

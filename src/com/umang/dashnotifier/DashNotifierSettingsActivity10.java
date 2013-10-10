@@ -15,12 +15,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 
-
-public class DashNotifierSettingsActivity3 extends AbstractSettings {
-	static final String ext = "3";
+public class DashNotifierSettingsActivity10 extends AbstractSettings {
+	static final String ext = "10";
 	PrefsFragment mPrefsFragment;
 	SharedPreferences preferences;
 	SharedPreferences.Editor editor;
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -78,7 +78,5 @@ public class DashNotifierSettingsActivity3 extends AbstractSettings {
 	        }
 	    }
 	}
-	
-	
 
 }

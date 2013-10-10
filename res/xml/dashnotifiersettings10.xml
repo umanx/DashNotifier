@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceScreen
+        android:key="extapp10"
+        android:summary="@string/summary_list_preference"
+        android:title="@string/title_list_preference" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.umang.dashnotifier.AppSelectActivity"
+            android:targetPackage="com.umang.dashnotifier" >
+            <extra
+                android:name="ext"
+                android:value="extapp10" />
+        </intent>
+    </PreferenceScreen>
+
+    <Preference
+        android:key="icon_preference10"
+        android:summary="@string/icon_pref_summary"
+        android:title="@string/icon_pref_title" />
+    
+    <com.google.android.apps.dashclock.configuration.AppChooserPreference
+        android:key="click_intent10"
+        android:title="@string/click_behave_title" />
+
+    <ListPreference
+        android:defaultValue="@string/default_title_pref"
+        android:dialogTitle="@string/dialog_title_list_preference"
+        android:entries="@array/entries_list_preference"
+        android:entryValues="@array/entryvalues_list_preference"
+        android:key="ext_title_preference10"
+        android:title="@string/ext_title_list_preference" />
+
+    <EditTextPreference
+        android:enabled="false"
+        android:layout="?android:preferenceLayoutChild"
+        android:key="text_preference10"
+        android:summary="@string/text_pref_summary"
+        android:title="@string/text_pref_title" />
+
+    <CheckBoxPreference
+        android:key="clear_on_unlock10"
+        android:summaryOff="@string/unlock_off"
+        android:summaryOn="@string/unlock_on"
+        android:title="@string/unlock_title" />
+    <CheckBoxPreference
+        android:key="content_on10"
+        android:summaryOff="@string/content_off_summary"
+        android:summaryOn="@string/content_on_summary"
+        android:title="@string/content_title" />
+    <CheckBoxPreference
+        android:key="stack_on10"
+        android:layout="?android:preferenceLayoutChild"
+        android:dependency="content_on10"
+        android:summaryOff="@string/stack_off_summary"
+        android:summaryOn="@string/stack_on_summary"
+        android:title="@string/stack_title" />
+    <CheckBoxPreference
+        android:key="always_show10"
+        android:summaryOff="@string/always_off_summary"
+        android:summaryOn="@string/always_on_summary"
+        android:title="@string/always_title" />
+    
+    <CheckBoxPreference
+        android:key="show_ongoing10"
+        android:summaryOff="@string/show_ongoing_off_summary"
+        android:summaryOn="@string/show_ongoing_on_summary"
+        android:title="@string/show_ongoing_title" />
+
+    <PreferenceCategory android:title="@string/screen_behavior_preference" >
+        <CheckBoxPreference
+            android:key="turn_screen_on10"
+            android:summaryOff="@string/screen_setting_off"
+            android:summaryOn="@string/screen_setting_on"
+            android:title="@string/screen_preference_title" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/other_pref" >
+        <PreferenceScreen
+                android:title="@string/market_title"
+                android:summary="@string/market_summary">
+
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="http://play.google.com/store/apps/details?id=com.umang.dashnotifier" />
+
+        </PreferenceScreen>
+        
+        <PreferenceScreen
+            	android:key="about10"
+                android:title="@string/about_title">
+                
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="http://developer.android.com/" />
+
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>
