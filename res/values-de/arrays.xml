@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_list_preference">
+        <item>App Name ohne Zähler</item>
+        <item>App Name mit Zähler</item>
+        <item>Benutzerdefiniert ohne Zähler</item>
+        <item>Benutzerdefiniert mit Zähler</item>
+        <item>Benachrichtigungstitel ohne Zähler</item>
+        <item>Benachrichtigungstitel mit Zähler</item>
+    </string-array>
+</resources>
