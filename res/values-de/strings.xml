@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DashNotifier</string>
+    <string name="service_name">DashNotifier</string>
+    <string name="extension_title">DashNotifier 1</string>
+    <string name="extension_title2">DashNotifier 2</string>
+    <string name="extension_title3">DashNotifier 3</string>
+    <string name="extension_title4">DashNotifier 4</string>
+    <string name="extension_title5">DashNotifier 5</string>
+    <string name="extension_title6">DashNotifier 6</string>
+    <string name="extension_title7">DashNotifier 7</string>
+    <string name="extension_title8">DashNotifier 8</string>
+    <string name="extension_title9">DashNotifier 9</string>
+    <string name="extension_title10">DashNotifier 10</string>
+    <string name="notification_access_warn">Benachrichtigungszugriff ist deaktiviert. Tippe oben auf das rote Warnsymbol um Zugriff zu gewähren</string>
+    <string name="notification_access_ok">Benachrichtigungszugriff ist aktiviert</string>
+    <string name="extension_description">Zeige Benachrichtigungen im Dashclock Widget</string>
+    <string name="title_settings">DashNotifier Einstellungen</string>
+    <string name="title_list_preference">Wähle Applikation</string>
+    <string name="summary_list_preference">Applikation wessen Beanchrichtigung im DashClock angezeigt wird</string>
+    <string name="screen_preference_title">Schalte Display an</string>
+    <string name="screen_setting_on">Display wird eingeschaltet, wenn eine neue Benachrichtigung eintrifft</string>
+    <string name="screen_setting_off">Display bleibt aus, wenn eine neue Benachrichtigung eintrifft</string>
+    <string name="screen_behavior_preference">Display Verhalten</string>
+    <string name="proximity_preference">Überprüfe Lage</string>
+    <string name="proximity_preference_summary">"Überprüfe den Lagensensor des Telefons bevor das Display eingeschaltet wird"</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="hello_world">Hallo Welt!</string>
+    <string name="title_activity_app_select">Wähle Application</string>
+    <string name="proximityThreshold">4.0</string>
+    <string name="unlock_on">Benachrichtigung wird beim Entsperren des Gerätes von DashClock entfernt</string>
+    <string name="unlock_off">Benachrichtigung wird behalten in DashClock behalten bis sie aus der Benachrichtungsleiste entfernt wird</string>
+    <string name="unlock_title">Leere beim Entsperren</string>
+    <string name="content_on_summary">Benachrichtigungsinhalt, Titel und Zähler werden angezeigt</string>
+    <string name="content_off_summary">Es werden nur der Zähler und der Benachrichtigungstitel angezeigt</string>
+    <string name="content_title">Zeige Benachrichtigungsinhalt</string>
+    <string name="setting_title1">Dashnotifier 1 Einstellungen</string>
+    <string name="setting_title2">Dashnotifier 2 Einstellungen</string>
+    <string name="setting_title3">Dashnotifier 3 Einstellungen</string>
+    <string name="setting_title4">Dashnotifier 4 Einstellungen</string>
+    <string name="setting_title5">Dashnotifier 5 Einstellungen</string>
+    <string name="setting_title6">Dashnotifier 6 Einstellungen</string>
+    <string name="setting_title7">Dashnotifier 7 Einstellungen</string>
+    <string name="setting_title8">Dashnotifier 8 Einstellungen</string>
+    <string name="setting_title9">Dashnotifier 9 Einstellungen</string>
+    <string name="setting_title10">Dashnotifier 10 Einstellungen</string>
+    <string name="icon_pref_summary">Icon welches in DashClock angezeigt wird</string>
+    <string name="action_service">Status des Dienstes</string>
+    <string name="always_off_summary">Wird nur angezeigt, falls ungelesene Benachrichtigungen vorhanden sind</string>
+    <string name="always_on_summary">Diese App wird immer in DashClock angezeigt</string>
+    <string name="always_title">Immer anzeigen</string>
+    <string name="always_count_off_summary">Zähler wird nicht angezeigt, wenn keine neuen Benachrichtigungen vorhanden sind</string>
+    <string name="always_count_on_summary">Zähler (0) wird angezeigt, wenn keine neuen Benachrichtigungen vorhanden sind</string>
+    <string name="always_count_title">Zeige Zähler</string>
+    <string name="show_ongoing_off_summary">Andauernde Benachrichtigungen von dieser App werden nicht angezeigt</string>
+    <string name="show_ongoing_on_summary">Andauernde Benachrichtigungen von dieser App werden angezeigt</string>
+    <string name="show_ongoing_title">Zeige andauernde Benachrichtigungen</string>
+    <string name="text_pref_summary">Lasse es als Standardverhalten leer</string>
+    <string name="text_pref_title">Erweiterungstiteltext</string>
+    <string name="icon_pref_title">Wähle Icon</string>
+    <string name="icon_picker_title">Wähle Icon Quelle</string>
+    <string name="icon_picker_dn_icons_title">DashNotifier Icons</string>
+    <string name="icon_picker_gallery_title">Gallerie</string>
+    <string name="icon_picker_pack_title">Icon Pack</string>
+    <string name="icon_picker_choose_icon_title">Wähle Icon</string>
+    <string name="dn_provider_perm_desc">Gewähre Zugriff auf Benachrichtigungen welche sich im DashNotifier content provider befinden</string>
+    <string name="dn_provider_perm_label">DashNotifier content provider Zugriff</string>
+    <string name="content_preference">Inhalt</string>
+    <string name="dialog_title_list_preference">Erweiterungstiteleinstellung</string>
+    <string name="ext_title_list_preference">Erweiterungstitelformat</string>
+    <string name="stack_on_summary">Benachrichtigungensinhalt wird gestapelt, alter Inhalt wird angezeigt</string>
+    <string name="stack_off_summary">Nur die letzten Benachtichtigungen werden angezeigt</string>
+    <string name="stack_title">Stapele Benachrichtigungensinhalt</string>
+    <string name="close">Schließen</string>
+    <string name="other_pref">Sonstige</string>
+    <string name="about_title">Über DashNotifier</string>
+    <string name="market_title">In Google Play ansehen</string>
+    <string name="market_summary">Du findest dies nützlich oder hast Feedback? Bitte bewerte DashNotifier in Google Play</string>
+    <string name="title_apps">Apps</string>
+    <string name="title_shortcuts">Verknüpfungen</string>
+    <string name="pref_shortcut_default">Standard</string>
+    <string name="click_behave_title">Klick Verhalten</string>
+    <string name="search_title">Suche Applikation</string>
+    <string name="search_hint">Applikationsname</string>
+    <string name="about_body"><![CDATA[
+        Copyright 2013 Umang Vipul. DashNotifier wurde unter der MIT license veröffentlicht.<br>
+        <a href="https://github.com/umanx/DashNotifier">Github</a><br><br>
+        
+        Einen herzlichen Dank and diese wundervollen Menschen:<br>
+        <b>Massimiliano Guidi</b><br>
+        <i>Italienische Übersetzung</i><br><br>
+        <b>Javier García Olivares</b><br>
+        <i>Spanische Übersetzung</i><br><br>
+		<b>Parthipan Ramesh</b><br>
+        <i>Deutsche Übersetzung</i><br><br>
+        <b><a href="https://plus.google.com/u/0/107094547764562810063/">Dima Skvarskyi</a></b><br>
+        <i>für das Applikationsicon</i><br><br>
+        Einne herzlichen Dank an diese Open Source Projekte:<br>
+        <b><a href="https://code.google.com/p/dashclock/">DashClock Widget</a></b><br>
+        <i>von Roman Nurik</i><br><br>
+        <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br>
+        <i>von Benjamin Weiss</i>
+    ]]></string>
+    <string name="accessiblity_description">DashNotifier Bedienungshilfendienst für das Lesen von Benachrichtigungen. Beachte das keine anderen Eingaben erfasst werden. Die erfassten Daten werden nur an DashClock gesendet</string>
+    
+</resources>
