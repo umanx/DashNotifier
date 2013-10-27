@@ -21,6 +21,7 @@ import android.preference.PreferenceManager;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.RemoteViews;
 
 public class DashNotificationListenerAcc extends AccessibilityService {
 	private static final String TAG = "DashNotificationListenerAcc";
@@ -59,13 +60,15 @@ public class DashNotificationListenerAcc extends AccessibilityService {
 
 			CharSequence ticker = "";
 			try {
-				ticker = ((Notification)event.getParcelableData()).tickerText;
+				@SuppressWarnings("unused")
+				RemoteViews check = ((Notification)event.getParcelableData()).contentView;
 			} catch (Exception e1) {
 				Log.v("DashNotifierAccessibilty","Null event");
+				return;
 			}
 			
 			int extNumber = extMatch(event.getPackageName().toString());
-			System.out.println("extNumber: "+ extNumber);
+			System.out.println("extNumber: "+ ((Notification)event.getParcelableData()).toString() );
 
 			if (isDisplayed(Integer.toString(extNumber), true)) {
 				
