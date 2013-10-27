@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-        <PreferenceScreen
+    <PreferenceScreen
         android:key="extapp1"
         android:summary="@string/summary_list_preference"
         android:title="@string/title_list_preference" >
         <intent
             android:action="android.intent.action.VIEW"
-			android:targetClass="com.umang.dashnotifier.AppSelectActivity"
+            android:targetClass="com.umang.dashnotifier.AppSelectActivity"
             android:targetPackage="com.umang.dashnotifier" >
             <extra
                 android:name="ext"
                 android:value="extapp1" />
         </intent>
     </PreferenceScreen>
-    
 
     <Preference
         android:key="icon_preference1"
         android:summary="@string/icon_pref_summary"
         android:title="@string/icon_pref_title" />
 
+    <CheckBoxPreference
+        android:key="notification_icon_preference1"
+        android:summaryOff="@string/notif_icon_off_summary"
+        android:summaryOn="@string/notif_icon_on_summary"
+        android:title="@string/notif_icon_title" />
+
     <com.google.android.apps.dashclock.configuration.AppChooserPreference
         android:key="click_intent1"
         android:title="@string/click_behave_title" />
-    
-    
+
     <ListPreference
         android:defaultValue="@string/default_title_pref"
         android:dialogTitle="@string/dialog_title_list_preference"
@@ -36,8 +40,8 @@
 
     <EditTextPreference
         android:enabled="false"
-        android:layout="?android:preferenceLayoutChild"
         android:key="text_preference1"
+        android:layout="?android:preferenceLayoutChild"
         android:summary="@string/text_pref_summary"
         android:title="@string/text_pref_title" />
 
@@ -48,16 +52,24 @@
         android:title="@string/unlock_title" />
     <CheckBoxPreference
         android:key="content_on1"
+        android:defaultValue="true"
         android:summaryOff="@string/content_off_summary"
         android:summaryOn="@string/content_on_summary"
         android:title="@string/content_title" />
     <CheckBoxPreference
+        android:dependency="content_on1"
         android:key="stack_on1"
         android:layout="?android:preferenceLayoutChild"
-        android:dependency="content_on1"
         android:summaryOff="@string/stack_off_summary"
         android:summaryOn="@string/stack_on_summary"
         android:title="@string/stack_title" />
+    <CheckBoxPreference
+        android:dependency="content_on1"
+        android:key="number_on1"
+        android:layout="?android:preferenceLayoutChild"
+        android:summaryOff="@string/number_off_summary"
+        android:summaryOn="@string/number_on_summary"
+        android:title="@string/number_title" />
     <CheckBoxPreference
         android:key="always_show1"
         android:summaryOff="@string/always_off_summary"
@@ -76,24 +88,20 @@
             android:summaryOn="@string/screen_setting_on"
             android:title="@string/screen_preference_title" />
     </PreferenceCategory>
-    
     <PreferenceCategory android:title="@string/other_pref" >
         <PreferenceScreen
-                android:title="@string/market_title"
-                android:summary="@string/market_summary">
-
-            <intent android:action="android.intent.action.VIEW"
-                    android:data="http://play.google.com/store/apps/details?id=com.umang.dashnotifier" />
-
+            android:summary="@string/market_summary"
+            android:title="@string/market_title" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://play.google.com/store/apps/details?id=com.umang.dashnotifier" />
         </PreferenceScreen>
-        
         <PreferenceScreen
-            	android:key="about1"
-                android:title="@string/about_title">
-                
-            <intent android:action="android.intent.action.VIEW"
-                    android:data="http://developer.android.com/" />
-
+            android:key="about1"
+            android:title="@string/about_title" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://developer.android.com/" />
         </PreferenceScreen>
     </PreferenceCategory>
 

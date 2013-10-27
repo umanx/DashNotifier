@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">DashNotifier</string>
     <string name="service_name">DashNotifier</string>
+    <string name="extension_count">11</string>
     <string name="extension_title">DashNotifier 1</string>
     <string name="extension_title2">DashNotifier 2</string>
     <string name="extension_title3">DashNotifier 3</string>
@@ -12,6 +14,7 @@
     <string name="extension_title8">DashNotifier 8</string>
     <string name="extension_title9">DashNotifier 9</string>
     <string name="extension_title10">DashNotifier 10</string>
+    <string name="extension_title11">DashNotifier 11</string>
     <string name="notification_access_warn">Notification access is disabled. Tap the red alert symbol above to enable Notification access</string>
     <string name="notification_access_ok">Notification access is enabled</string>
     <string name="extension_description">Display notifications in Dashclock Widget</string>
@@ -44,6 +47,7 @@
     <string name="setting_title8">Dashnotifier 8 Settings</string>
     <string name="setting_title9">Dashnotifier 9 Settings</string>
     <string name="setting_title10">Dashnotifier 10 Settings</string>
+    <string name="setting_title11">Dashnotifier 11 Settings</string>
     <string name="icon_pref_summary">Icon displayed in DashClock</string>
     <string name="action_service">Service status</string>
     <string name="always_off_summary">Only showed when there are unread notifications</string>
@@ -82,11 +86,23 @@
     <string name="click_behave_title">Click behavior</string>
     <string name="search_title">Search Applications</string>
     <string name="search_hint">Application name</string>
-    <string name="about_body"><![CDATA[
+    <string name="iv_content_desc">Application Icon</string>
+    <string name="ext_onoff_toast">Restart DashClock settings to see changes. You may have to swipe extensions away if you have disabled any.</string>
+    <string name="number_on_summary">If present, number from right side of Notification is shown</string>
+    <string name="number_off_summary">Number from right side of Notification is not shown</string>
+    <string name="number_title">Show Number</string>
+    <string name="notif_icon_on_summary">Notification\'s icon is used in DashClock. Overrides chosen icon.</string>
+    <string name="notif_icon_off_summary">DashNotifier\'s icon preference used in DashClock</string>
+    <string name="notif_icon_title">Use icon from notification</string>
+    <string name="notif_icon_warn_always">Set icon to be used when there are no notifications</string>
+    <string name="about_body">
+<![CDATA[
         Copyright 2013 Umang Vipul. DashNotifier is released under MIT license.<br>
         <a href="https://github.com/umanx/DashNotifier">Github</a><br><br>
         
         Many thanks to these awesome people:<br>
+        <b><a href="https://play.google.com/store/apps/developer?id=UPpack">Milosch Lee</a></b><br>
+        <i>for <a href="https://play.google.com/store/apps/details?id=com.uppack.stampedwhite">Stamped White Icons</a> set</i><br><br>
         <b>Massimiliano Guidi</b><br>
         <i>for Italian translation</i><br><br>
         <b>Javier García Olivares</b><br>
@@ -100,12 +116,17 @@
         <i>by Roman Nurik</i><br><br>
         <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br>
         <i>by Benjamin Weiss</i>
-    ]]></string>
+    ]]>
+    </string>
     <string name="accessiblity_description">DashNotifier Accessibility service to read notifications. Note that other accessibility events are not monitored and no data is sent anywhere other than DashClock</string>
-    <!-- Do not translate the following-->
-    <string name="default_title_pref" translatable="false">app_count</string>
-    <string name="app_name_and_version" translatable="false"><![CDATA[
+    <string name="ext_count_dialog_title">Active Extensions</string>
+    <!-- Do not translate the following -->
+    <string name="default_title_pref" translatable="false">notif_nocount</string>
+    <string name="app_name_and_version" translatable="false">
+<![CDATA[
         <b>DashNotifier</b>&nbsp;<font color="#888888">v%1$s</font>
-    ]]></string>
-    
+    ]]>
+    </string>
+    <string name="title_activity_click_intent">Click Intent Activity</string>
+
 </resources>

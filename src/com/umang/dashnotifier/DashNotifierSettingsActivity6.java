@@ -64,6 +64,7 @@ public class DashNotifierSettingsActivity6 extends AbstractSettings {
 					       iconImage.compress(Bitmap.CompressFormat.PNG, 90, out);
 					       out.close();
 					       editor.putString("iconExt"+ext, getFilesDir().toString()+"/icon_"+ext+".png");
+					       editor.putString("iconExt_default_"+ext, getFilesDir().toString()+"/icon_"+ext+".png");
 					       editor.commit();
 					       File iconFile = new File(getFilesDir().toString()+"/icon_"+ext+".png");
 					       iconFile.setReadable(true, false);

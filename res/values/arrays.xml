@@ -2,7 +2,7 @@
 <resources>
 
     <string-array name="icon_labels" translatable="false">
-		<item>BBM</item>
+        <item>BBM</item>
         <item>ChatOn</item>
         <item>Email</item>
         <item>Facebook</item>
@@ -32,33 +32,194 @@
     </string-array>
 
     <array name="icons" translatable="false">
-		<item>@drawable/ic_bbm</item>
+        <item>@drawable/accuweather</item>
+        <item>@drawable/airdroid</item>
+        <item>@drawable/alarm</item>
+        <item>@drawable/amazon</item>
+        <item>@drawable/amazonappstore</item>
+        <item>@drawable/amazonlocal</item>
+        <item>@drawable/amazonmp3</item>
+        <item>@drawable/andchat</item>
+        <item>@drawable/android</item>
+        <item>@drawable/androidforums</item>
+        <item>@drawable/anydo</item>
+        <item>@drawable/apollo</item>
+        <item>@drawable/ic_appgratis</item>
+        <item>@drawable/ic_appsales</item>
+        <item>@drawable/arcnote</item>
+        <item>@drawable/askfm</item>
+        <item>@drawable/audible</item>
+        <item>@drawable/baconreader</item>
+        <item>@drawable/banking</item>
+        <item>@drawable/bbc</item>
+        <item>@drawable/bbcnews</item>
+        <item>@drawable/ic_bbm</item>
+        <item>@drawable/blogger</item>
+        <item>@drawable/box</item>
+        <item>@drawable/bump</item>
+        <item>@drawable/calendar2</item>
+        <item>@drawable/candycrush</item>
+        <item>@drawable/carbontwitter</item>
         <item>@drawable/ic_chaton</item>
+        <item>@drawable/chess</item>
+        <item>@drawable/chompsms</item>
+        <item>@drawable/ic_clash</item>
+        <item>@drawable/cmupdater</item>
+        <item>@drawable/cnn</item>
+        <item>@drawable/copy</item>
+        <item>@drawable/crackle</item>
+        <item>@drawable/craigslist</item>
+        <item>@drawable/cyanideandhappiness</item>
+        <item>@drawable/deviceframegenerator</item>
+        <item>@drawable/dictionary</item>
+        <item>@drawable/doubletwist</item>
+        <item>@drawable/downloads</item>
+        <item>@drawable/drawsomething</item>
+        <item>@drawable/droidforums</item>
+        <item>@drawable/dropbox</item>
+        <item>@drawable/duolingo</item>
+        <item>@drawable/ebay</item>
+        <item>@drawable/eighttracks</item>
+        <item>@drawable/email</item>
         <item>@drawable/ic_email</item>
+        <item>@drawable/espn</item>
+        <item>@drawable/etsy</item>
+        <item>@drawable/evernote</item>
+        <item>@drawable/evernotefood</item>
+        <item>@drawable/evernoteskitch</item>
+        <item>@drawable/eyeinthesky</item>
+        <item>@drawable/facebook</item>
         <item>@drawable/ic_facebook</item>
+        <item>@drawable/falconpro</item>
+        <item>@drawable/fandango</item>
+        <item>@drawable/fieldtrip</item>
+        <item>@drawable/fitradio</item>
+        <item>@drawable/flickfootball</item>
+        <item>@drawable/flickr</item>
+        <item>@drawable/foursquare</item>
+        <item>@drawable/friendcaster</item>
+        <item>@drawable/gag9</item>
+        <item>@drawable/ic_getglue</item>
+        <item>@drawable/glympse</item>
         <item>@drawable/ic_gmail</item>
+        <item>@drawable/gmail2</item>
+        <item>@drawable/googledrive</item>
+        <item>@drawable/googlemaps</item>
+        <item>@drawable/googleplaygames</item>
+        <item>@drawable/googlesearch</item>
+        <item>@drawable/googlevoice</item>
+        <item>@drawable/gosms</item>
+        <item>@drawable/gplus</item>
         <item>@drawable/ic_gplus</item>
-        <item>@drawable/ic_keep</item>
+        <item>@drawable/gpsstatus</item>
+        <item>@drawable/groupme</item>
+        <item>@drawable/groupon</item>
         <item>@drawable/ic_gsearch</item>
+        <item>@drawable/gtasks</item>
         <item>@drawable/ic_gvoice</item>
+        <item>@drawable/gwallet</item>
+        <item>@drawable/hangouts</item>
         <item>@drawable/ic_hangouts</item>
+        <item>@drawable/ic_heyzap</item>
+        <item>@drawable/imdb</item>
+        <item>@drawable/imgur</item>
         <item>@drawable/ic_imo</item>
+        <item>@drawable/implus</item>
+        <item>@drawable/ingress</item>
         <item>@drawable/ic_instagram</item>
+        <item>@drawable/instagram</item>
+        <item>@drawable/kakaotalk</item>
+        <item>@drawable/ic_keep</item>
+        <item>@drawable/keep</item>
         <item>@drawable/ic_kik</item>
+        <item>@drawable/kik</item>
+        <item>@drawable/ic_klyph</item>
+        <item>@drawable/lastfm</item>
+        <item>@drawable/letterbyletter</item>
         <item>@drawable/ic_line</item>
+        <item>@drawable/line</item>
         <item>@drawable/ic_linkedin</item>
+        <item>@drawable/linkedin</item>
+        <item>@drawable/lookout</item>
+        <item>@drawable/mapmyrun</item>
         <item>@drawable/ic_message</item>
         <item>@drawable/ic_messenger</item>
+        <item>@drawable/messenger</item>
+        <item>@drawable/mint</item>
+        <item>@drawable/myfitnesspal</item>
+        <item>@drawable/mytracks</item>
+        <item>@drawable/nowplaying</item>
+        <item>@drawable/okcupid</item>
+        <item>@drawable/oovoo</item>
+        <item>@drawable/outlook</item>
+        <item>@drawable/outofmilk</item>
+        <item>@drawable/pandora</item>
+        <item>@drawable/path</item>
+        <item>@drawable/paypal</item>
+        <item>@drawable/pinterest</item>
         <item>@drawable/ic_play</item>
+        <item>@drawable/playmusic</item>
+        <item>@drawable/playstore</item>
+        <item>@drawable/pocket</item>
+        <item>@drawable/pocketcasts</item>
+        <item>@drawable/poweramp</item>
+        <item>@drawable/press</item>
+        <item>@drawable/rdio</item>
+        <item>@drawable/reddit</item>
+        <item>@drawable/runtastic</item>
+        <item>@drawable/scrabble</item>
+        <item>@drawable/seriesguide</item>
+        <item>@drawable/shazam</item>
+        <item>@drawable/shuttleplayer</item>
+        <item>@drawable/skydrive</item>
         <item>@drawable/ic_skype</item>
+        <item>@drawable/skype</item>
+        <item>@drawable/sliding</item>
+        <item>@drawable/sms</item>
         <item>@drawable/ic_snapchat</item>
+        <item>@drawable/snapchat</item>
+        <item>@drawable/soccerlivescores</item>
+        <item>@drawable/soundcloud</item>
+        <item>@drawable/spotify</item>
+        <item>@drawable/steam</item>
+        <item>@drawable/stumbleupon</item>
         <item>@drawable/ic_tango</item>
+        <item>@drawable/tango</item>
+        <item>@drawable/ic_tapatalk</item>
+        <item>@drawable/tasks</item>
+        <item>@drawable/telephone2</item>
+        <item>@drawable/textplus</item>
+        <item>@drawable/textra</item>
         <item>@drawable/ic_threema</item>
+        <item>@drawable/ttorrent</item>
+        <item>@drawable/tunein</item>
+        <item>@drawable/tvguide</item>
         <item>@drawable/ic_twitter</item>
+        <item>@drawable/twitter</item>
+        <item>@drawable/utorrent</item>
+        <item>@drawable/verge</item>
         <item>@drawable/ic_viber</item>
+        <item>@drawable/viber</item>
+        <item>@drawable/vimeo</item>
+        <item>@drawable/vine</item>
+        <item>@drawable/vk</item>
+        <item>@drawable/vkmessages</item>
         <item>@drawable/ic_voxsci</item>
+        <item>@drawable/waze</item>
+        <item>@drawable/weatherbug</item>
+        <item>@drawable/weatherchannel</item>
+        <item>@drawable/wechat</item>
         <item>@drawable/ic_whatsapp</item>
+        <item>@drawable/whatsapp</item>
+        <item>@drawable/winamp</item>
+        <item>@drawable/wordpress</item>
         <item>@drawable/ic_words</item>
+        <item>@drawable/xda</item>
+        <item>@drawable/yahoomail</item>
+        <item>@drawable/yelp</item>
+        <item>@drawable/youtube</item>
+        <item>@drawable/zappos</item>
+        <item>@drawable/ic_zeebox</item>
     </array>
 
     <string-array name="entries_list_preference">
@@ -69,13 +230,39 @@
         <item>Notification title, no count</item>
         <item>Notification title with count</item>
     </string-array>
-    <string-array name="entryvalues_list_preference">
+    <string-array name="entryvalues_list_preference" translatable="false">
         <item>app_nocount</item>
         <item>app_count</item>
         <item>custom_nocount</item>
         <item>custom_count</item>
         <item>notif_nocount</item>
         <item>notif_count</item>
+    </string-array>
+    <string-array name="extension_names" translatable="false">
+        <item>@string/extension_title</item>
+        <item>@string/extension_title2</item>
+        <item>@string/extension_title3</item>
+        <item>@string/extension_title4</item>
+        <item>@string/extension_title5</item>
+        <item>@string/extension_title6</item>
+        <item>@string/extension_title7</item>
+        <item>@string/extension_title8</item>
+        <item>@string/extension_title9</item>
+        <item>@string/extension_title10</item>
+        <item>@string/extension_title11</item>
+    </string-array>
+    <string-array name="default_extension_status" translatable="false">
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
     </string-array>
 
 </resources>

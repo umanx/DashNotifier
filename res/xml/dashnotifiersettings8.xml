@@ -19,7 +19,11 @@
         android:key="icon_preference8"
         android:summary="@string/icon_pref_summary"
         android:title="@string/icon_pref_title" />
-    
+    <CheckBoxPreference
+        android:key="notification_icon_preference8"
+        android:summaryOff="@string/notif_icon_off_summary"
+        android:summaryOn="@string/notif_icon_on_summary"
+        android:title="@string/notif_icon_title" />
     <com.google.android.apps.dashclock.configuration.AppChooserPreference
         android:key="click_intent8"
         android:title="@string/click_behave_title" />
@@ -46,6 +50,7 @@
         android:title="@string/unlock_title" />
     <CheckBoxPreference
         android:key="content_on8"
+        android:defaultValue="true"
         android:summaryOff="@string/content_off_summary"
         android:summaryOn="@string/content_on_summary"
         android:title="@string/content_title" />
@@ -56,6 +61,13 @@
         android:summaryOff="@string/stack_off_summary"
         android:summaryOn="@string/stack_on_summary"
         android:title="@string/stack_title" />
+    <CheckBoxPreference
+        android:dependency="content_on8"
+        android:key="number_on8"
+        android:layout="?android:preferenceLayoutChild"
+        android:summaryOff="@string/number_off_summary"
+        android:summaryOn="@string/number_on_summary"
+        android:title="@string/number_title" />
     <CheckBoxPreference
         android:key="always_show8"
         android:summaryOff="@string/always_off_summary"

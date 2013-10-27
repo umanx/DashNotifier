@@ -17,8 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -82,24 +82,21 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 
 	private void showChosen(final int type) {
 		if (type == REQUEST_PICK_SYSTEM) {
-			ListView list = new ListView(mParent);
+			
+			
 			final IconAdapter adapter = new IconAdapter();
 
 			final Dialog dialog = new Dialog(mParent,
 					android.R.style.Theme_DeviceDefault_Dialog);
 			
 
-			dialog.setTitle(R.string.icon_picker_title);
-			dialog.setContentView(list);
+			dialog.setTitle(R.string.icon_picker_choose_icon_title);
+			dialog.setContentView(R.layout.icon_picker_grid);
+			GridView gridview = (GridView) dialog.findViewById(R.id.gridview);
+		    gridview.setAdapter(adapter);
 
-			list.setDivider(mResources
-					.getDrawable(android.R.drawable.divider_horizontal_dark));
-			list.setAdapter(adapter);
-			list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-			if (adapter != null && adapter.getItemPosition(icon) != -1)
-				list.setItemChecked(adapter.getItemPosition(icon), true);
-
-			list.setOnItemClickListener(new OnItemClickListener() {
+			
+		    gridview.setOnItemClickListener(new OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
@@ -109,6 +106,7 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 					System.out.println(adapter.getItemReference(position));
 					editor.putString(mPreference.getKey(),
 							adapter.getItemReference(position));
+					editor.putString("icon_preference_default_"+extNumber, adapter.getItemReference(position));
 					editor.remove((new StringBuilder("iconExt")).append(extNumber).toString());
 					editor.commit();
 					mIconListener.iconPicked();
@@ -133,16 +131,22 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 	class IconAdapter extends BaseAdapter {
 		String[] labels;
 		TypedArray icons;
+		int bound;
+		int padding;
 
 		public IconAdapter() {
 			labels = mResources.getStringArray(R.array.icon_labels);
 			icons = mResources.obtainTypedArray(R.array.icons);
+			bound = mParent.getResources().getDimensionPixelSize(
+					R.dimen.grid_icon_bound);
+			padding = mParent.getResources().getDimensionPixelSize(
+					R.dimen.grid_icon_padding);
 
 		}
 
 		@Override
 		public int getCount() {
-			return labels.length;
+			return icons.length();
 		}
 
 		@Override
@@ -164,32 +168,18 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			View view = convertView;
-
-			if (convertView == null) {
-				view = View.inflate(mParent,
-						android.R.layout.simple_list_item_activated_1, null);
-			}
-
-			TextView label = (TextView) view.findViewById(android.R.id.text1);
-			
-			label.setText(labels[position]);
-			label.setTextColor(mResources
-					.getColor(android.R.color.primary_text_dark));
-
-			Drawable icon = ((Drawable) getItem(position)).mutate();
-			int bound = mParent.getResources().getDimensionPixelSize(
-					R.dimen.shortcut_picker_left_padding);
-			int padding = mParent.getResources().getDimensionPixelSize(
-					R.dimen.icon_padding);
-			icon.setBounds(0, 0, bound, bound);
-			label.setCompoundDrawables(icon, null, null, null);
-			label.setCompoundDrawablePadding(padding);
-			
-
-			return view;
-		}
-
+            ImageView imageView;
+            if (convertView == null) {  // if it's not recycled, initialize some attributes
+                imageView = new ImageView(mParent);
+                imageView.setLayoutParams(new GridView.LayoutParams(bound, bound));
+                imageView.setPadding(padding, padding, padding, padding);
+            } else {
+                imageView = (ImageView) convertView;
+            }
+            imageView.setImageDrawable(((Drawable) getItem(position)).mutate());
+            return imageView;
+        }
+		
 		public int getItemPosition(String iconName) {
 			for (int i = 0; i < icons.length(); i++) {
 				if (getItemReference(i).equals(iconName))

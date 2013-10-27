@@ -2,10 +2,13 @@ package com.umang.dashnotifier;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import android.app.ListFragment;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -14,16 +17,30 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnCloseListener;
+import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
 
-public class AppListFragment extends ListFragment {
+public class AppListFragment extends ListFragment implements OnQueryTextListener, OnCloseListener{
 	private PackageAdapter adapter;
-	private List<PackageItem> data;
+	private ArrayList<PackageItem> data;
 	SharedPreferences preferences;
 	SharedPreferences.Editor editor;
 	PackageManager pm;
+	SearchView searchView;
+	AtomicBoolean showSearch = new AtomicBoolean(false);
+	AtomicBoolean loadComplete = new AtomicBoolean(false);
+	AtomicBoolean asyncFired = new AtomicBoolean(false);
+	ArrayList<String> iconNames;
+	ArrayList<String> packageNames;
+	
 	//private static final String TAG = "AppListFragment";
 
 	@Override
@@ -34,6 +51,8 @@ public class AppListFragment extends ListFragment {
 		preferences = PreferenceManager
 				.getDefaultSharedPreferences(getActivity());
 		editor = preferences.edit();
+		setHasOptionsMenu(true);
+		
 	}
 
 	@Override
@@ -48,9 +67,57 @@ public class AppListFragment extends ListFragment {
 		
 	}
 	
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+		MenuItem menuitem = menu.findItem(R.id.search);
+		if(showSearch.get())
+			menuitem.setVisible(true);
+		
+	}
+	
+	@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		
+	    inflater.inflate(R.menu.options_menu, menu);
+	    
+	 // Associate searchable configuration with the SearchView
+	    SearchManager searchManager =
+	           (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+	    searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+	    searchView.setSearchableInfo(
+	            searchManager.getSearchableInfo(getActivity().getComponentName()));
+	    searchView.setOnQueryTextListener(this);
+	    searchView.setOnCloseListener(this);
+	    
+		
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		getListView().setFastScrollEnabled(true);
+		getListView().setTextFilterEnabled(true);
+		iconNames = new ArrayList<String>(Arrays.asList(getActivity().getResources().getStringArray(R.array.icon_file_names)));
+		packageNames = new ArrayList<String>(Arrays.asList(getActivity().getResources().getStringArray(R.array.package_names)));
+
+	}
+	
 	public void onListItemClick(ListView l, View v, int position, long id) {
 
 		PackageItem item = (PackageItem) getListAdapter().getItem(position);
+		
+		int index = packageNames.indexOf(item.getPackageName());
+		if (index != -1){
+			int iconId = getActivity().getResources()
+					.getIdentifier(iconNames.get(index)	, "drawable",
+							getActivity().getPackageName());
+			if (iconId != 0){
+				editor.remove("iconExt"+getActivity().getIntent().getStringExtra("ext").substring(6));
+				editor.putString("icon_preference"+getActivity().getIntent().getStringExtra("ext").substring(6),iconNames.get(index));
+				editor.putString("icon_preference_default_"+getActivity().getIntent().getStringExtra("ext").substring(6),iconNames.get(index));
+			}
+				
+		}
 		
 		editor.putString(getActivity().getIntent().getStringExtra("ext"),
 				item.getPackageName());
@@ -60,12 +127,16 @@ public class AppListFragment extends ListFragment {
 		getActivity().finish();
 
 	}
-
+	
 	private void startNewAsyncTask() {
-		ListAppTask asyncTask = new ListAppTask(this, getActivity());
-		asyncTask.execute();
+		if (!loadComplete.get() && !asyncFired.get()){
+			ListAppTask asyncTask = new ListAppTask(this, getActivity());
+			asyncTask.execute();
+		}
+		
 	}
-
+	
+	
 	private class ListAppTask extends AsyncTask<Void, Void, List<PackageItem>> {
 		private ArrayList<String> sections = new ArrayList<String>();
         private ArrayList<Integer> positions = new ArrayList<Integer>();
@@ -75,6 +146,8 @@ public class AppListFragment extends ListFragment {
 		private ListAppTask(AppListFragment fragment, Context context) {
 			this.fragmentWeakRef = new WeakReference<AppListFragment>(fragment);
 			this.mContext = context;
+			asyncFired.compareAndSet(false, true);
+			System.out.println("Starting Async");
 		}
 
 		@Override
@@ -132,9 +205,37 @@ public class AppListFragment extends ListFragment {
 			if (this.fragmentWeakRef.get() != null) {
 				setListAdapter(adapter);
 				adapter.setSection(sections, positions);
-				getListView().setFastScrollEnabled(true);
+				showSearch.compareAndSet(false, true);
+				loadComplete.compareAndSet(false, true);
+				fragmentWeakRef.get().getFragmentManager().invalidateOptionsMenu();
 				//getListView().setFastScrollAlwaysVisible(true);
 			}
 		}
+	}
+
+
+	@Override
+	public boolean onClose() {
+		
+		return false;
+	}
+
+	@Override
+	public boolean onQueryTextChange(String queryString) {
+		adapter.getFilter().filter(queryString);
+		return true;
+	}
+
+	@Override
+	public boolean onQueryTextSubmit(String queryString) {
+		if (searchView != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+            }
+            searchView.clearFocus();
+        }
+        return true;
 	}
 }

@@ -1,5 +1,6 @@
 package com.umang.dashnotifier;
 
+
 import com.google.android.apps.dashclock.configuration.AppChooserPreference;
 import com.umang.dashnotifier.provider.NotifSQLiteHelper;
 import com.umang.dashnotifier.provider.NotificationProvider;
@@ -28,6 +29,7 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 	String[] prefValues;
 	int preferencesResId;
 	private static final String TAG = "PrefsFragment";
+	int apiVersion;
 	
 	public PrefsFragment(){
 		
@@ -36,7 +38,7 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 	
 	public PrefsFragment(String number){
 		extNumber = number;
-		
+		apiVersion = android.os.Build.VERSION.SDK_INT;
 	}
 		
 	@Override
@@ -59,6 +61,12 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 		Drawable icon;
 		String packageName = preferences.getString("extapp"+extNumber, "dummy.xx.name"); 
 		IconPicker ip = new IconPicker(getActivity(), this, extNumber);
+		
+		//Disable Show ongoing setting for Android < 4.3
+		if (apiVersion < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2){
+			if (getPreferenceScreen().findPreference("show_ongoing"+extNumber) != null)
+				getPreferenceScreen().removePreference(getPreferenceScreen().findPreference("show_ongoing"+extNumber));
+		}
 		
 		if (!packageName.equals("dummy.xx.name")){
 			PackageManager pm = getActivity().getPackageManager();
@@ -118,20 +126,23 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 				getPreferenceScreen().findPreference("icon_preference"+extNumber).
 				setOnPreferenceClickListener(ip);
 				
-				getPreferenceScreen().findPreference("show_ongoing"+extNumber).setOnPreferenceClickListener
-				(new Preference.OnPreferenceClickListener(){
-					@Override
-					public boolean onPreferenceClick(Preference preference) {
-						String packageName = preferences.getString("extapp"+extNumber, "dummy.xx.name"); 
-						int count = getActivity().getContentResolver().delete(
-								NotificationProvider.CONTENT_URI,
-								NotifSQLiteHelper.COL_PNAME + " = ? ",
-								new String[] { packageName });
-						Log.v(TAG,"Deleted: " + Integer.toString(count));
-						
-						return true;
-					}
-				});
+				if (getPreferenceScreen().findPreference("show_ongoing"+extNumber) != null){
+					getPreferenceScreen().findPreference("show_ongoing"+extNumber).setOnPreferenceClickListener
+					(new Preference.OnPreferenceClickListener(){
+						@Override
+						public boolean onPreferenceClick(Preference preference) {
+							String packageName = preferences.getString("extapp"+extNumber, "dummy.xx.name"); 
+							int count = getActivity().getContentResolver().delete(
+									NotificationProvider.CONTENT_URI,
+									NotifSQLiteHelper.COL_PNAME + " = ? ",
+									new String[] { packageName });
+							Log.v(TAG,"Deleted: " + Integer.toString(count));
+							
+							return true;
+						}
+					});
+				}
+				
 				
 				getPreferenceScreen().findPreference("ext_title_preference"+extNumber).setOnPreferenceChangeListener
 				( new Preference.OnPreferenceChangeListener() {

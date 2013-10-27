@@ -1,15 +1,13 @@
 package com.umang.dashnotifier;
 
-import java.lang.reflect.Field;
+import java.io.File;
 import java.util.ArrayList;
-
 
 import com.umang.dashnotifier.provider.NotifSQLiteHelper;
 import com.umang.dashnotifier.provider.NotificationProvider;
 import com.umang.dashnotifier.provider.NotificationStore;
 
 import android.annotation.SuppressLint;
-import android.app.Notification;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -18,18 +16,13 @@ import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.widget.RemoteViews;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 
-public class DashNotificationListener extends NotificationListenerService
-		implements SensorEventListener {
+public class DashNotificationListener extends NotificationListenerService {
 
 	private static final String TAG = "DashNotificationListener";
 
@@ -38,13 +31,9 @@ public class DashNotificationListener extends NotificationListenerService
 	ArrayList<String> notifText;
 	SharedPreferences preferences;
 	boolean screen_on_pref;
-	boolean proximity_pref;
 	PowerManager pm;
 	Uri mUri;
-	private SensorManager sensorManager;
-	private Sensor proximity;
-	private float maxRange;
-	private float sensorValue;
+	SharedPreferences.Editor editor;
 
 	@Override
 	public void onCreate() {
@@ -52,10 +41,7 @@ public class DashNotificationListener extends NotificationListenerService
 		projection = NotificationStore.allColumns;
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-		proximity = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-		if (proximity != null)
-			maxRange = proximity.getMaximumRange();
+		editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
 		Log.v(TAG, "Service created");
 		int count = getContentResolver().delete(
 				NotificationProvider.CONTENT_URI, null, null);
@@ -75,42 +61,52 @@ public class DashNotificationListener extends NotificationListenerService
 		Log.v(TAG,
 				"Posted by: " + sbn.getPackageName() + ": "
 						+ Integer.toString(sbn.getId()));
-		//Log.v(TAG, Integer.toString(sbn.getNotification().icon));
-		getPackageManager().getDrawable(sbn.getPackageName(),sbn.getNotification().icon, null);
-		
-		CharSequence ticker = sbn.getNotification().tickerText;
+		// Log.v(TAG, Integer.toString(sbn.getNotification().icon));
 
-		int extNumber = extMatch(sbn.getPackageName());
+		CharSequence ticker = sbn.getNotification().tickerText;
 		
-		if (isDisplayed(Integer.toString(extNumber),sbn.isClearable()) ) {
+		int extNumber = extMatch(sbn.getPackageName());
+
+		if (isDisplayed(Integer.toString(extNumber), sbn.isClearable())) {
 			String nTime = DateFormat
 					.format("hh:mm", sbn.getPostTime() * 1000L).toString();
 			screen_on_pref = preferences.getBoolean(
 					"turn_screen_on" + Integer.toString(extNumber), false);
-			proximity_pref = preferences.getBoolean(
-					"proximity_check" + Integer.toString(extNumber), false);
-
-			if (!pm.isScreenOn() && screen_on_pref) {
-				if (proximity_pref) {
-					sensorManager.registerListener(this, proximity,
-							SensorManager.SENSOR_DELAY_FASTEST);
-					Log.v(TAG, "Sensor value:" + Float.toString(sensorValue)
-							+ ", Max range: " + Float.toString(maxRange));
-					if (sensorValue >= Float
-							.parseFloat(getString(R.string.proximityThreshold))) {
-						turnMeOn();
-
+			
+			if (preferences.getBoolean("notification_icon_preference"+ Integer.toString(extNumber),false)){
+				String iconFileName = getFilesDir() + "/"+sbn.getPackageName()+ Integer.toString(sbn.getNotification().icon) + ".png";
+				File iconFromNotification = new File(iconFileName);
+				if (!iconFromNotification.exists()){
+					
+					boolean stat = Commons.bitmapToFile(
+							Commons.drawableToBitmap(getPackageManager().getDrawable(
+									sbn.getPackageName(), sbn.getNotification().icon,
+									null)), iconFileName);
+					if (stat){
+						editor.putString("iconExt"+Integer.toString(extNumber), iconFileName);
+					    editor.commit();
 					}
-					sensorManager.unregisterListener(this);
-				} else
-					turnMeOn();
+						
+				}
+				editor.putString("iconExt"+Integer.toString(extNumber), iconFileName);
+			    editor.commit();
 			}
+			
+			
 
-			notifText = extractor(sbn.getNotification());
+			if (!pm.isScreenOn() && screen_on_pref)
+				turnMeOn();
+
+			/*
+			 * notifText: Index 0 - notification title, 1 - notification text, 2
+			 * - notification extra eg. with audio players it's generally play
+			 * list position
+			 */
+			notifText = Commons.extractor(sbn.getNotification());
 
 			Log.v(TAG, "In listener: " + notifText.toString());
 
-			//2 - For title and text
+			// 2 - For title and text
 			if (notifText.size() >= 2) {
 				Cursor countCheck = getContentResolver().query(
 						NotificationProvider.CONTENT_URI,
@@ -126,9 +122,10 @@ public class DashNotificationListener extends NotificationListenerService
 								NotificationProvider.CONTENT_URI,
 								createContentValue(sbn.getPackageName(), sbn
 										.getId(), notifText, nTime,
-										ticker != null ? ticker.toString() : null,
-										sbn.isClearable(), sbn.isOngoing(), 1));
-						
+										ticker != null ? ticker.toString()
+												: null, sbn.isClearable(), sbn
+												.isOngoing(), 1));
+
 						Log.v(TAG, "New id returned: " + mUri.toString());
 
 						if (mUri == null) {
@@ -140,16 +137,29 @@ public class DashNotificationListener extends NotificationListenerService
 					}
 				} else {
 					try {
-						if (preferences.getBoolean(
-								"stack_on" + Integer.toString(extNumber), false))
-							notifText.set(1, notifText.get(1) + "\n" + countCheck.getString(4));
-						
+						// ignore duplicate notifications from same app. Only
+						// checks notification text to check duplicity.
+						int newCount = countCheck.getString(4).equals(
+								notifText.get(1)) ? countCheck.getInt(10)
+								: countCheck.getInt(10) + 1;
+
+						if (preferences
+								.getBoolean(
+										"stack_on"
+												+ Integer.toString(extNumber),
+										false))
+							notifText.set(1, notifText.get(1) + "\n"
+									+ countCheck.getString(4));
+
 						int count = getContentResolver().update(
 								NotificationProvider.CONTENT_URI,
 								createContentValue(sbn.getPackageName(), sbn
 										.getId(), notifText, nTime,
-										ticker != null ? ticker.toString() : null, sbn.isClearable(),
-										sbn.isOngoing(), countCheck.getInt(10) + 1),
+										ticker != null ? ticker.toString()
+												: null, sbn.isClearable(), sbn
+												.isOngoing(),
+										// check on count to ignore duplicate
+										newCount),
 								NotifSQLiteHelper.COL_PNAME + " = ? AND "
 										+ NotifSQLiteHelper.COL_NOTIF_ID
 										+ " = ? ",
@@ -170,7 +180,7 @@ public class DashNotificationListener extends NotificationListenerService
 
 	@Override
 	public void onNotificationRemoved(StatusBarNotification sbn) {
-
+		int extNumber = extMatch(sbn.getPackageName());
 		Log.v("DashNotifier", "Removed: " + sbn.getPackageName() + ": "
 				+ Integer.toString(sbn.getId()));
 		try {
@@ -181,6 +191,17 @@ public class DashNotificationListener extends NotificationListenerService
 					new String[] { sbn.getPackageName(),
 							Integer.toString(sbn.getId()) });
 			Log.v(TAG, "Deleted: " + Integer.toString(count));
+			//restore from backup fr always_show extensions
+			if (preferences.getBoolean("always_show"+ Integer.toString(extNumber), false)){
+				if (!TextUtils.isEmpty(preferences.getString("iconExt_default_"+Integer.toString(extNumber), "")))
+					editor.putString("iconExt"+Integer.toString(extNumber), preferences.getString("iconExt_default_"+Integer.toString(extNumber), ""));
+				else{
+					editor.remove("iconExt"+Integer.toString(extNumber));
+					editor.putString("icon_preference"+Integer.toString(extNumber), preferences.getString("icon_preference_default_"+Integer.toString(extNumber), ""));
+				}
+					
+				editor.commit();
+			}
 		} catch (Exception e) {
 
 			Log.e(TAG, e.getClass().getName());
@@ -217,7 +238,7 @@ public class DashNotificationListener extends NotificationListenerService
 				.getString("extapp1", "dummy.xx.name")))
 			return 1;
 		else if (packageName.equals(preferences.getString("extapp2",
-				"dummy.xx.name"))) 
+				"dummy.xx.name")))
 			return 2;
 		else if (packageName.equals(preferences.getString("extapp3",
 				"dummy.xx.name")))
@@ -243,34 +264,24 @@ public class DashNotificationListener extends NotificationListenerService
 		else if (packageName.equals(preferences.getString("extapp10",
 				"dummy.xx.name")))
 			return 10;
+		else if (packageName.equals(preferences.getString("extapp11",
+				"dummy.xx.name")))
+			return 11;
 		else
 			return -1;
 	}
-	
-	private boolean isDisplayed(String extNumber, boolean clearable){
+
+	private boolean isDisplayed(String extNumber, boolean clearable) {
 		if (extNumber.equals("-1"))
 			return false;
-		else{
+		else {
 			if (clearable)
 				return true;
-			else if (preferences.getBoolean(
-					"show_ongoing" + extNumber, false) && !clearable)
+			else if (preferences.getBoolean("show_ongoing" + extNumber, false)
+					&& !clearable)
 				return true;
 			else
 				return false;
-		}
-		
-	}
-
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-	}
-
-	@Override
-	public void onSensorChanged(SensorEvent event) {
-		if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-			// Log.d(TAG,Float.toString(event.values[0]));
-			sensorValue = event.values[0];
 		}
 
 	}
@@ -283,64 +294,6 @@ public class DashNotificationListener extends NotificationListenerService
 		wl.acquire();
 		wl.release();
 	}
-	
-	@SuppressLint("UseSparseArrays")
-	public static ArrayList<String> extractor(Notification notification){
-		ArrayList<String> notifText = new ArrayList<String>();
-	    RemoteViews views = notification.contentView;
-	    @SuppressWarnings("rawtypes")
-		Class secretClass = views.getClass();
-
-	    try {
-	        
-	        Field outerFields[] = secretClass.getDeclaredFields();
-	        for (int i = 0; i < outerFields.length; i++) {
-	        	
-	            if (!outerFields[i].getName().equals("mActions")) continue;
-
-	            outerFields[i].setAccessible(true);
-
-	            @SuppressWarnings("unchecked")
-				ArrayList<Object> actions = (ArrayList<Object>) outerFields[i]
-	                    .get(views);
-	            for (Object action : actions) {
-	            
-	                Field innerFields[] = action.getClass().getDeclaredFields();
-	            
-	                Object value = null;
-	                Integer type = null;
-	                @SuppressWarnings("unused")
-					Integer viewId = null;
-	                for (Field field : innerFields) {
-	            
-	                    field.setAccessible(true);
-	                    if (field.getName().equals("value")) {
-	                        value = field.get(action);
-	                    } else if (field.getName().equals("type")) {
-	                        type = field.getInt(action);
-	                    } else if (field.getName().equals("viewId")) {
-	                        viewId = field.getInt(action);
-	                    }
-	                }
-
-	            
-	                if (type != null && (type == 9 || type == 10) && value != null){
-	                	//System.out.println("Type: " + Integer.toString(type) + " Value: " + value.toString());
-	                	if ( !notifText.contains(value.toString()) )
-	                		notifText.add(value.toString());
-	                }
-	                	
-	            }
-	        }
-	        
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return notifText;
-	}
 
 	
-
-	
-
 }

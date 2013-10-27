@@ -15,7 +15,7 @@ import android.util.Log;
 public class UnlockReceiver extends BroadcastReceiver {
 
 	//exts must be equal to the number of extensions you want DashNotifier to support
-	private static final int exts = 10;
+	private static final int exts = 11;
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Log.d("UnlcokReceiver", "Unlocked");

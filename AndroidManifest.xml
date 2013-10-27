@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.umang.dashnotifier"
-    android:versionCode="10"
-    android:versionName="0.41" >
+    android:versionCode="11"
+    android:versionName="0.42" >
 
     <permission
         android:name="com.umang.dashnotifier.CP_PERMISSION"
@@ -52,7 +52,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -73,7 +75,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension2"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title2"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -94,7 +98,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension3"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title3"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -115,7 +121,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension4"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title4"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -136,7 +144,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension5"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title5"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -157,7 +167,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension6"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title6"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -178,7 +190,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension7"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title7"
+            android:enabled="true"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -199,7 +213,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension8"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title8"
+            android:enabled="false"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -220,7 +236,9 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension9"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title9"
+            android:enabled="false"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
                 <action android:name="com.google.android.apps.dashclock.Extension" />
@@ -241,6 +259,8 @@
         </service>
         <service
             android:name="com.umang.dashnotifier.DashNotifierExtension10"
+            android:enabled="false"
+            android:icon="@drawable/ic_extension"
             android:label="@string/extension_title10"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
             <intent-filter>
@@ -261,60 +281,102 @@
                 android:value=".DashNotifierSettingsActivity10" />
         </service>
 
+        <service
+            android:name="com.umang.dashnotifier.DashNotifierExtension11"
+            android:enabled="false"
+            android:icon="@drawable/ic_extension"
+            android:label="@string/extension_title11"
+            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension" />
+            </intent-filter>
+
+            <meta-data
+                android:name="protocolVersion"
+                android:value="2" />
+            <meta-data
+                android:name="worldReadable"
+                android:value="true" />
+            <meta-data
+                android:name="description"
+                android:value="@string/extension_description" />
+            <meta-data
+                android:name="settingsActivity"
+                android:value=".DashNotifierSettingsActivity11" />
+        </service>
         <activity
-            android:name=".DashNotifierSettingsActivity"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity"
             android:exported="true"
             android:label="@string/setting_title1" />
         <activity
-            android:name=".DashNotifierSettingsActivity2"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity2"
             android:exported="true"
             android:label="@string/setting_title2" />
         <activity
-            android:name=".DashNotifierSettingsActivity3"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity3"
             android:exported="true"
             android:label="@string/setting_title3" />
         <activity
-            android:name=".DashNotifierSettingsActivity4"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity4"
             android:exported="true"
             android:label="@string/setting_title4" />
         <activity
-            android:name=".DashNotifierSettingsActivity5"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity5"
             android:exported="true"
             android:label="@string/setting_title5" />
         <activity
-            android:name=".DashNotifierSettingsActivity6"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity6"
             android:exported="true"
             android:label="@string/setting_title6" />
         <activity
-            android:name=".DashNotifierSettingsActivity7"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity7"
             android:exported="true"
             android:label="@string/setting_title7" />
         <activity
-            android:name=".DashNotifierSettingsActivity8"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity8"
             android:exported="true"
             android:label="@string/setting_title8" />
         <activity
-            android:name=".DashNotifierSettingsActivity9"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity9"
             android:exported="true"
             android:label="@string/setting_title9" />
         <activity
-            android:name=".DashNotifierSettingsActivity10"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity10"
             android:exported="true"
             android:label="@string/setting_title10" />
         <activity
-            android:name=".AppSelectActivity"
+            android:name="com.umang.dashnotifier.DashNotifierSettingsActivity11"
+            android:exported="true"
+            android:label="@string/setting_title11" />
+        <activity
+            android:name="com.umang.dashnotifier.AppSelectActivity"
             android:exported="true"
             android:label="@string/title_activity_app_select" >
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
+
+            
         </activity>
 
-        <receiver android:name="UnlockReceiver" >
+        <receiver android:name="com.umang.dashnotifier.UnlockReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.umang.dashnotifier.ClickIntentActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/title_activity_click_intent"
+            android:theme="@*android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="com.umang.dashnotifier.action.ClickIntent" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
