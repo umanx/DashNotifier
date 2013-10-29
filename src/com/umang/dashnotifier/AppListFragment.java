@@ -17,6 +17,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +41,7 @@ public class AppListFragment extends ListFragment implements OnQueryTextListener
 	AtomicBoolean asyncFired = new AtomicBoolean(false);
 	ArrayList<String> iconNames;
 	ArrayList<String> packageNames;
+	ListAppTask asyncTask ;
 	
 	//private static final String TAG = "AppListFragment";
 
@@ -130,9 +132,17 @@ public class AppListFragment extends ListFragment implements OnQueryTextListener
 	
 	private void startNewAsyncTask() {
 		if (!loadComplete.get() && !asyncFired.get()){
-			ListAppTask asyncTask = new ListAppTask(this, getActivity());
+			asyncTask = new ListAppTask(this, getActivity());
 			asyncTask.execute();
 		}
+		
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		if (asyncTask.cancel(true))
+			Log.v("DashNotifier", "AppList loading canceled");
 		
 	}
 	

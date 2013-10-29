@@ -21,6 +21,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
@@ -107,6 +108,18 @@ public abstract class AbstractSettings extends Activity {
         .build();
 		Crouton crouton = Crouton.makeText(this, R.string.notification_access_warn, Style.ALERT);
 		crouton.setConfiguration(CONFIGURATION_INFINITE);
+		crouton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if (apiVersion >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2)
+					startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+				else
+					startActivity(new Intent("android.settings.ACCESSIBILITY_SETTINGS"));
+				
+			}
+			
+		});
 		if(!service_running)
 			crouton.show();
 	}

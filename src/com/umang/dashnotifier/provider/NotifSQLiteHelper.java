@@ -17,9 +17,10 @@ public class NotifSQLiteHelper extends SQLiteOpenHelper {
     public static final String COL_CLEAR = "notif_clearable";
     public static final String COL_ONGOING = "notif_ongoing";
     public static final String COL_COUNT = "notif_count";
+    public static final String COL_TAG = "notif_tag";
     
     private static final String DATABASE_NAME = "dashNotifications";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 	
 	public NotifSQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +39,8 @@ public class NotifSQLiteHelper extends SQLiteOpenHelper {
 				 + COL_TICKER 	+ " text, "
 				 + COL_CLEAR 	+ " integer, "
 				 + COL_ONGOING 	+ " integer, "
-				 + COL_COUNT	+ " integer );";
+				 + COL_COUNT	+ " integer, "
+				 + COL_TAG		+ " text );";
 		 db.execSQL(CREATE_NOTIF_TABLE);
 	}
 
@@ -46,6 +48,21 @@ public class NotifSQLiteHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTIF);
 		onCreate(db);
+	}
+	
+	public static class Columns{
+		public static final int COL_ID = 0;
+		public static final int COL_PNAME = 1;
+		public static final int COL_NOTIF_ID = 2;
+		public static final int COL_TITLE = 3;
+		public static final int COL_TEXT = 4;
+		public static final int COL_EXTRA = 5;
+		public static final int COL_TIME = 6;
+		public static final int COL_TICKER = 7;
+		public static final int COL_CLEAR = 8;
+		public static final int COL_ONGOING = 9;
+		public static final int COL_COUNT = 10;
+		public static final int COL_TAG = 11;
 	}
 
 }

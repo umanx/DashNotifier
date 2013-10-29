@@ -10,8 +10,10 @@ import android.app.Dialog;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,8 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,6 +36,7 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 	public static final int REQUEST_PICK_GALLERY = 1;
 	public static final int REQUEST_PICK_ICON_PACK = 2;
 	private Activity mParent;
+	//private Context mParent;
 	private Resources mResources;
 	private Preference mPreference;
 	private OnIconPickListener mIconListener;
@@ -65,10 +70,11 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 
 	public void pickIcon() {
 
-		String[] items = new String[2];
+		String[] items = new String[3];
 		items[0] = mResources
 				.getString(R.string.icon_picker_dn_icons_title);
 		items[1] = mResources.getString(R.string.icon_picker_gallery_title);
+		items[2] = mResources.getString(R.string.icon_picker_pack_title);
 
 		new AlertDialog.Builder(mParent, AlertDialog.THEME_DEVICE_DEFAULT_DARK)
 				.setTitle(R.string.icon_picker_title)
@@ -115,17 +121,25 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 			});
 			dialog.show();
 		} else if (type == REQUEST_PICK_GALLERY) {
-
-			Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-			photoPickerIntent.setType("image/*");
-			mParent.startActivityForResult(photoPickerIntent,
-					REQUEST_PICK_GALLERY);
-
-		} /*
-		 * else if (type == REQUEST_PICK_ICON_PACK) { Intent iconPackIntent =
-		 * new Intent(ICON_ACTION);
-		 * startFragmentOrActivityForResult(iconPackIntent, type, fragmentId); }
-		 */
+			File image = new File(mParent.getFilesDir() + "/icon_"+extNumber + ".png");
+			Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
+            intent.setType("image/*");
+            try {
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
+                mParent.startActivityForResult(intent, type);
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
+			
+		} else if (type == REQUEST_PICK_ICON_PACK) {
+			try {
+				Intent intent = new Intent("org.adw.launcher.icons.ACTION_PICK_ICON");
+				mParent.startActivityForResult(intent,type);
+			} catch (ActivityNotFoundException e) {
+				Toast.makeText(mParent, R.string.no_icon_packs, Toast.LENGTH_LONG).show();
+			}
+		}
+		 
 	}
 
 	class IconAdapter extends BaseAdapter {

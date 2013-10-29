@@ -1,7 +1,12 @@
 package com.umang.dashnotifier;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
@@ -13,7 +18,9 @@ import com.umang.dashnotifier.provider.NotificationProvider;
 import com.umang.dashnotifier.provider.NotificationStore;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -107,12 +114,12 @@ public class Commons {
 
 			Intent clickIntent = new Intent();
 
-			if (apiVersion < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2){
+			if (apiVersion < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
 				clickIntent.putExtra("packageName", packageName);
 				clickIntent.putExtra("extNumber", extNumber);
 				clickIntent.setClass(mContext, ClickIntentActivity.class);
-				
-			}else{
+
+			} else {
 				try {
 					clickIntent = pm.getLaunchIntentForPackage(packageName)
 							.addCategory(Intent.CATEGORY_DEFAULT);
@@ -122,26 +129,25 @@ public class Commons {
 					clickIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				} finally {
 					clickIntent = AppChooserPreference.getIntentValue(
-							preferences.getString("click_intent" + extNumber, ""),
-							clickIntent);
+							preferences.getString("click_intent" + extNumber,
+									""), clickIntent);
 				}
 			}
-			
+
 			if (preferences.getBoolean("content_on" + extNumber, false)) {
 				if (mPreferences.getString("ext_title_preference" + extNumber,
-						"app_count").contains("notif")){
-					if (mPreferences.getBoolean("number_on"+extNumber, true))
+						"app_count").contains("notif")) {
+					if (mPreferences.getBoolean("number_on" + extNumber, true))
 						body = notifText + " " + notifExtra;
 					else
 						body = notifText;
-				}
-				else{
-					if (mPreferences.getBoolean("number_on"+extNumber, true))
+				} else {
+					if (mPreferences.getBoolean("number_on" + extNumber, true))
 						body = notifTitle + "\n" + notifText + " " + notifExtra;
 					else
 						body = notifTitle + "\n" + notifText;
 				}
-					
+
 			} else
 				body = notifTitle;
 
@@ -346,6 +352,81 @@ public class Commons {
 			e.printStackTrace();
 		}
 		return notifText;
+	}
+
+	@SuppressLint("WorldReadableFiles")
+	public static void saveFileSetPreference(int requestCode, int resultCode,
+			Intent imageReturnedIntent, Context mContext, String ext,
+			SharedPreferences.Editor editor) {
+
+		switch (requestCode) {
+		case IconPicker.REQUEST_PICK_GALLERY:
+			if (resultCode == Activity.RESULT_OK) {
+				String iconFileName = "icon_" + ext + ".png";
+				Uri selectedImage = imageReturnedIntent.getData();
+				InputStream imageStream;
+				try {
+					imageStream = mContext.getContentResolver()
+							.openInputStream(selectedImage);
+					System.out.println(selectedImage.toString());
+					@SuppressWarnings("deprecation")
+					OutputStream stream = new BufferedOutputStream(
+							mContext.openFileOutput(iconFileName,
+									Context.MODE_WORLD_READABLE));
+					int bufferSize = 1024;
+					byte[] buffer = new byte[bufferSize];
+					int len = 0;
+					while ((len = imageStream.read(buffer)) != -1) {
+						stream.write(buffer, 0, len);
+					}
+					if (stream != null) {
+						stream.close();
+						editor.putString("iconExt" + ext, mContext
+								.getFilesDir().toString()
+								+ "/icon_"
+								+ ext
+								+ ".png");
+						editor.putString("iconExt_default_" + ext, mContext
+								.getFilesDir().toString()
+								+ "/icon_"
+								+ ext
+								+ ".png");
+						editor.commit();
+					}
+
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			break;
+		case IconPicker.REQUEST_PICK_ICON_PACK:
+			
+			if (resultCode == Activity.RESULT_OK) {
+				String iconFileName = mContext.getFilesDir().toString()
+						+ "/icon_" + ext + ".png";
+				Bitmap iconBitmap = null;
+				if (imageReturnedIntent
+						.hasExtra("android.intent.extra.shortcut.ICON_RESOURCE"))
+					iconBitmap = (Bitmap) imageReturnedIntent.getExtras().get(
+							"android.intent.extra.shortcut.ICON_RESOURCE");
+				else if (imageReturnedIntent.hasExtra("icon"))
+					iconBitmap = (Bitmap) imageReturnedIntent.getExtras().get(
+							"icon");
+				if (iconBitmap != null) {
+					boolean stat = Commons.bitmapToFile(iconBitmap,
+							iconFileName);
+					if (stat) {
+						editor.putString("iconExt" + ext, iconFileName);
+						editor.putString("iconExt_default_" + ext, iconFileName);
+						editor.commit();
+					}
+				}
+			}
+			break;
+
+		}
 	}
 
 }
