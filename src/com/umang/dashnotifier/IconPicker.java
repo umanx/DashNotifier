@@ -149,7 +149,7 @@ public class IconPicker implements Preference.OnPreferenceClickListener {
 		int padding;
 
 		public IconAdapter() {
-			labels = mResources.getStringArray(R.array.icon_labels);
+			
 			icons = mResources.obtainTypedArray(R.array.icons);
 			bound = mParent.getResources().getDimensionPixelSize(
 					R.dimen.grid_icon_bound);

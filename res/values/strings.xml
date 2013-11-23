@@ -95,7 +95,7 @@
     <string name="notif_icon_off_summary">DashNotifier\'s icon preference used in DashClock</string>
     <string name="notif_icon_title">Use icon from notification</string>
     <string name="notif_icon_warn_always">Set icon to be used when there are no notifications</string>
-    <string name="unlock_summary_api17"><i>If on, notification is cleared when device is unlocked. Other until clicked on DashClock</i></string>
+    <string name="unlock_off_api17"><i>Notification is retained in DashClock until it is clicked</i></string>
     <string name="no_icon_packs">No supported Icon Packs found</string>
     <string name="about_body">
 <![CDATA[

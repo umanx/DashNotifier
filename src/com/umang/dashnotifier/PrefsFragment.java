@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -55,9 +56,10 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 						getActivity().getPackageName());
 		// Load the preferences from an XML resource
 		addPreferencesFromResource(preferencesResId);
-		preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		prefText = getResources().getStringArray(R.array.entries_list_preference);
 		prefValues = getResources().getStringArray(R.array.entryvalues_list_preference);
+		preferences = PreferenceManager
+				.getDefaultSharedPreferences(getActivity());
 	}
 	
 	@Override
@@ -79,6 +81,8 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 		if (apiVersion < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2){
 			if (getPreferenceScreen().findPreference("show_ongoing"+extNumber) != null)
 				getPreferenceScreen().removePreference(getPreferenceScreen().findPreference("show_ongoing"+extNumber));
+			CheckBoxPreference unlock_cbp = (CheckBoxPreference) getPreferenceScreen().findPreference("clear_on_unlock"+extNumber);
+			unlock_cbp.setSummaryOff(R.string.unlock_off_api17);
 		}
 		
 				
@@ -197,8 +201,12 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 					}
 				});
 				
-				
+				if (TextUtils.isEmpty(preferences.getString("ext_title_preference"+extNumber, "app_count"))){
+					preferences.edit().putString("ext_title_preference"+extNumber, getString(R.string.default_title_pref)).commit();
+				}
 					
+					
+				
 				getPreferenceScreen().findPreference("ext_title_preference"+extNumber).setSummary
 				(prefText[findPosition(prefValues,preferences.getString("ext_title_preference"+extNumber, "app_count"))]);
 				
@@ -254,7 +262,8 @@ public class PrefsFragment extends PreferenceFragment implements IconPicker.OnIc
 			if (array[i].equals(value))
 				return i;
 		}
-		return -1;
+		//return index of notif_nocount. Added for missing string value in v0.46 in Italiano
+		return 4;
 	}
 
 }

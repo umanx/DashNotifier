@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">DashNotifier</string>
     <string name="service_name">DashNotifier</string>
+    <string name="extension_count">11</string>
     <string name="extension_title">DashNotifier 1</string>
     <string name="extension_title2">DashNotifier 2</string>
     <string name="extension_title3">DashNotifier 3</string>
@@ -9,6 +10,10 @@
     <string name="extension_title5">DashNotifier 5</string>
     <string name="extension_title6">DashNotifier 6</string>
     <string name="extension_title7">DashNotifier 7</string>
+    <string name="extension_title8">DashNotifier 8</string>
+    <string name="extension_title9">DashNotifier 9</string>
+    <string name="extension_title10">DashNotifier 10</string>
+    <string name="extension_title11">DashNotifier 11</string>
     <string name="notification_access_warn">L\'accesso alle notifiche è disabilitato. Tocca il simbolo di allarme rosso per abilitarlo.</string>
     <string name="notification_access_ok">L\'accesso alle notifiche è abilitato</string>
     <string name="extension_description">Visualizza le notifiche nel widget DashClock</string>
@@ -38,6 +43,10 @@
     <string name="setting_title5">Impostazioni Dashnotifier 5</string>
     <string name="setting_title6">Impostazioni Dashnotifier 6</string>
     <string name="setting_title7">Impostazioni Dashnotifier 7</string>
+    <string name="setting_title8">Impostazioni DashNotifier 8</string>
+    <string name="setting_title9">Impostazioni DashNotifier 9</string>
+    <string name="setting_title10">Impostazioni DashNotifier 10</string>
+    <string name="setting_title11">Impostazioni DashNotifier 11</string>
     <string name="icon_pref_summary">Icona visualizzata in DashClock</string>
     <string name="action_service">Stato del servizio</string>
     <string name="always_off_summary">Visualizza solo quando ci sono notifiche non lette</string>
@@ -74,21 +83,37 @@
     <string name="title_shortcuts">Scorciatoie</string>
     <string name="pref_shortcut_default">Predefinito</string>
     <string name="click_behave_title">Apri al tocco</string>
-    <string name="about_body"><![CDATA[ 
+    <string name="search_title">Cerca applicazioni</string>
+    <string name="search_hint">Nome dell\'applicazione</string>
+    <string name="iv_content_desc">Icona dell\'applicazione</string>
+    <string name="ext_onoff_toast">Riavvia le impostazioni di DashClock per vedere i cambiamenti. Potresti dover eliminare alcune estensioni se ne hai disabilitate.</string>
+    <string name="number_on_summary">Se presente, viene mostrato il numero alla destra della notifica</string>
+    <string name="number_off_summary">Non viene mostrato il numero alla destra della notifica</string>
+    <string name="number_title">Mostra il numero</string>
+    <string name="notif_icon_on_summary">Usa in DashClock l\'icona della notifica. Prevale sull\'icona scelta.</string>
+    <string name="notif_icon_off_summary">Preferenza per l\'icona di Dashnotifier usata in DashClock</string>
+    <string name="notif_icon_title">Usa l\'icona della notifica</string>
+    <string name="notif_icon_warn_always">Imposta l\'icona da usare quando non ci sono notifiche</string>
+    <string name="unlock_summary_api17"><i>Se attivato, la notifica viene eliminata allo sblocco del dispositivo. Altrimenti quando cliccata in DashClock</i></string>
+    <string name="no_icon_packs">Non è stato trovato alcun pacchetto di icone supportato</string>
+    <string name="about_body"><![CDATA[  
         Copyright 2013 Umang Vipul. DashNotifier è rilascaito con la licenza MIT.<br> 
         <a href="https://github.com/umanx/dashnotifier">Github</a><br><br> 
          
-        Grazie a queste persone fantastiche per le traduzioni:<br> 
-        <b>Massimiliano Guidi</b><br> 
+        Grazie a queste persone fantastiche:<br> 
+                <b><a href="https://play.google.com/store/apps/developer?id=UPpack">Milosch Lee</a></b><br> 
+        <i>for <a href="https://play.google.com/store/apps/details?id=com.uppack.stampedwhite">Stamped White Icons</a> set</i><br><br> 
+<b>Massimiliano Guidi</b><br> 
         <i>Traduzione italiana</i><br><br> 
         <b>Javier García Olivares</b><br> 
-        <i>Traduzione spagnola</i><br><br> 
-		<b>Parthipan Ramesh</b><br> 
-        <i>Traduzione tedesco</i><br><br> 
+        <i>Traduzione spagnola</i><br><br>
+<b>Parthipan Rames</b><br> 
+        <i>Traduzione tedesca</i><br><br> 
         Mille grazie a questi progetti open source:<br> 
         <b><a href="https://code.google.com/p/dashclock/">DashClock Widget</a></b><br> 
         <i>di Roman Nurik</i><br><br> 
         <b><a href="https://github.com/keyboardsurfer/Crouton">Crouton</a></b><br> 
         <i>di Benjamin Weiss</i> ]]></string>
-    
+    <string name="accessiblity_description">Servizio di accessibilità di DashNotifier. Nota che altri eventi di accessibilità non sono monitorati e nessun dato viene inviato al di fuori di DashClock</string>
+    <string name="ext_count_dialog_title">Estensioni attive</string>
 </resources>

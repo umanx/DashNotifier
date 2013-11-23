@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="icon_labels" translatable="false">
-        <item>BBM</item>
-        <item>ChatOn</item>
-        <item>Email</item>
-        <item>Facebook</item>
-        <item>Gmail</item>
-        <item>Google+</item>
-        <item>Google Keep</item>
-        <item>Google Search</item>
-        <item>Google Voice</item>
-        <item>Hangouts</item>
-        <item>imo</item>
-        <item>Instagram</item>
-        <item>Kik</item>
-        <item>Line</item>
-        <item>LinkedIn</item>
-        <item>Message</item>
-        <item>Messenger</item>
-        <item>Play</item>
-        <item>Skype</item>
-        <item>Snapchat</item>
-        <item>Tango</item>
-        <item>Threema</item>
-        <item>Twitter</item>
-        <item>Viber</item>
-        <item>Voxsci</item>
-        <item>Whatsapp</item>
-        <item>Words</item>
-    </string-array>
-
-    <array name="icons" translatable="false">
+       <array name="icons" translatable="false">
         <item>@drawable/accuweather</item>
         <item>@drawable/airdroid</item>
         <item>@drawable/alarm</item>
@@ -65,6 +35,7 @@
         <item>@drawable/chompsms</item>
         <item>@drawable/ic_clash</item>
         <item>@drawable/cmupdater</item>
+        <item>@drawable/cnbc</item>
         <item>@drawable/cnn</item>
         <item>@drawable/copy</item>
         <item>@drawable/crackle</item>

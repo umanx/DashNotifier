@@ -374,6 +374,7 @@
         <item>vk</item>
         <item>vkmessages</item>
         <item>kakaotalk</item>
+        <item>cnbc</item>
     </string-array>
     
     <string-array name="package_names" translatable="false">
@@ -748,6 +749,7 @@
         <item>com.vkontakte.android</item>
         <item>com.extradea.vk</item>
         <item>com.kakao.talk</item>
+        <item>com.cnbc.client</item>
     </string-array>
 
 </resources>

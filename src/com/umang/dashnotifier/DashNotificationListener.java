@@ -2,16 +2,16 @@ package com.umang.dashnotifier;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import com.umang.dashnotifier.provider.NotifSQLiteHelper;
 import com.umang.dashnotifier.provider.NotificationProvider;
 import com.umang.dashnotifier.provider.NotificationStore;
-
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.service.notification.NotificationListenerService;
@@ -20,8 +20,11 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class DashNotificationListener extends NotificationListenerService {
 
 	private static final String TAG = "DashNotificationListener";
@@ -103,6 +106,17 @@ public class DashNotificationListener extends NotificationListenerService {
 			 * list position
 			 */
 			notifText = Commons.extractor(sbn.getNotification());
+			if (notifText.size() == 1){
+				ApplicationInfo content;
+				try {
+					content = getPackageManager().getApplicationInfo(sbn.getPackageName().toString(), 0);
+					final String appName = getPackageManager().getApplicationLabel(content).toString();
+					notifText.add(0, appName);
+				} catch (NameNotFoundException e) {
+					Log.e(TAG,"Error retrieving package name");
+				}
+				
+			}
 
 			Log.v(TAG, "In listener: " + notifText.toString());
 

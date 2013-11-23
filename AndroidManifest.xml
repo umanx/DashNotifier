@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.umang.dashnotifier"
-    android:versionCode="13"
-    android:versionName="0.45" >
+    android:versionCode="18"
+    android:versionName="0.48" >
 
     <permission
         android:name="com.umang.dashnotifier.CP_PERMISSION"
@@ -16,7 +16,7 @@
 
     <uses-sdk
         android:minSdkVersion="17"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
 
     <application
         android:allowBackup="true"

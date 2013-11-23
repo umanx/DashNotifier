@@ -14,6 +14,8 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.PowerManager;
@@ -34,6 +36,7 @@ public class DashNotificationListenerAcc extends AccessibilityService {
 	PowerManager pm;
 	Uri mUri;
 	SharedPreferences.Editor editor;
+	int apiVersion;
 	
 	@Override
 	public void onCreate() {
@@ -46,12 +49,13 @@ public class DashNotificationListenerAcc extends AccessibilityService {
 				NotificationProvider.CONTENT_URI, null, null);
 		Log.v(TAG, "Deleted on create: " + Integer.toString(count));
 		editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+		apiVersion = android.os.Build.VERSION.SDK_INT;
 	}
 	
 	@SuppressLint("Wakelock")
 	@Override
 	public void onAccessibilityEvent(AccessibilityEvent event) {
-		if (event.getEventType() == AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED){
+		if (event.getEventType() == AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED && apiVersion < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2){
 			Log.d(TAG,"Event detected");
 			Log.v(TAG,
 					"Posted by: " + event.getPackageName().toString() + ": "
@@ -107,7 +111,17 @@ public class DashNotificationListenerAcc extends AccessibilityService {
 				 * list position
 				 */
 				notifText = Commons.extractor((Notification)event.getParcelableData());
-
+				if (notifText.size() == 1){
+					ApplicationInfo content;
+					try {
+						content = getPackageManager().getApplicationInfo(event.getPackageName().toString(), 0);
+						final String appName = getPackageManager().getApplicationLabel(content).toString();
+						notifText.add(0, appName);
+					} catch (NameNotFoundException e) {
+						Log.e(TAG,"Error retrieving package name");
+					}
+					
+				}
 				Log.v(TAG, "In listener: " + notifText.toString());
 
 				// 2 - For title and text
