@@ -43,10 +43,10 @@
     <string name="setting_title5">Ajustes de DashNotifier 5</string>
     <string name="setting_title6">Ajustes de DashNotifier 6</string>
     <string name="setting_title7">Ajustes de DashNotifier 7</string>
-    <string name="setting_title4">Ajustes de DashNotifier 8</string>
-    <string name="setting_title5">Ajustes de DashNotifier 9</string>
-    <string name="setting_title6">Ajustes de DashNotifier 10</string>
-    <string name="setting_title7">Ajustes de DashNotifier 11</string>
+    <string name="setting_title8">Ajustes de DashNotifier 8</string>
+    <string name="setting_title9">Ajustes de DashNotifier 9</string>
+    <string name="setting_title10">Ajustes de DashNotifier 10</string>
+    <string name="setting_title11">Ajustes de DashNotifier 11</string>
     <string name="icon_pref_summary">Icono que se mostrará</string>
     <string name="action_service">Estado del servicio</string>
     <string name="always_off_summary">Mostrar sólo cuando hay notificaciones sin leer</string>
