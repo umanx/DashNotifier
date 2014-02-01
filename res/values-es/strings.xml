@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">DashNotifier</string>
     <string name="service_name">DashNotifier</string>
+    <string name="extension_count">11</string>
     <string name="extension_title">DashNotifier 1</string>
     <string name="extension_title2">DashNotifier 2</string>
     <string name="extension_title3">DashNotifier 3</string>
@@ -9,6 +10,10 @@
     <string name="extension_title5">DashNotifier 5</string>
     <string name="extension_title6">DashNotifier 6</string>
     <string name="extension_title7">DashNotifier 7</string>
+    <string name="extension_title8">DashNotifier 8</string>
+    <string name="extension_title9">DashNotifier 9</string>
+    <string name="extension_title10">DashNotifier 10</string>
+    <string name="extension_title11">DashNotifier 11</string>
     <string name="notification_access_warn">No has permitido el acceso a las notificaciones. Toca el icono de alerta rojo de arriba para activar el permiso a las notificaciones.</string>
     <string name="notification_access_ok">Has permitido el acceso a las notificaciones</string>
     <string name="extension_description">Muestra notificaciones en DashClock Widget</string>
@@ -38,6 +43,10 @@
     <string name="setting_title5">Ajustes de DashNotifier 5</string>
     <string name="setting_title6">Ajustes de DashNotifier 6</string>
     <string name="setting_title7">Ajustes de DashNotifier 7</string>
+    <string name="setting_title4">Ajustes de DashNotifier 8</string>
+    <string name="setting_title5">Ajustes de DashNotifier 9</string>
+    <string name="setting_title6">Ajustes de DashNotifier 10</string>
+    <string name="setting_title7">Ajustes de DashNotifier 11</string>
     <string name="icon_pref_summary">Icono que se mostrará</string>
     <string name="action_service">Estado del servicio</string>
     <string name="always_off_summary">Mostrar sólo cuando hay notificaciones sin leer</string>
@@ -74,6 +83,21 @@
     <string name="title_shortcuts">Accesos directos</string>
     <string name="pref_shortcut_default">Predeterminado</string>
     <string name="click_behave_title">Acción al tocar</string>
+    <string name="search_title">Buscar aplicaciones</string>
+    <string name="search_hint">Nombre de la aplicación</string>
+    <string name="iv_content_desc">Icono de la aplicación</string>
+    <string name="ext_onoff_toast">Reiniciar los ajustes de DashClock para ver los cambios. Puede que tengas que quitar extensiones si has deshabilitado alguna.</string>
+    <string name="number_on_summary">Si está presente, se muestra el número de la parte derecha de la notificación</string>
+    <string name="number_off_summary">No se muestra el número de la parte derecha de la notificación</string>
+    <string name="number_title">Mostrar número</string>
+    <string name="notif_icon_on_summary">DashClock utiliza el icono de la notificación. Anula el icono seleccionado.</string>
+    <string name="notif_icon_off_summary">DashClock utiliza el icono seleccionado en DashNotifier</string>
+    <string name="notif_icon_title">Usar el icono de la notificación</string>
+    <string name="notif_icon_warn_always">Escoge el icono a usar cuando no haya notificaciones</string>
+    <string name="unlock_off_api17"><i>La notificación es retenida en DashClock hasta que se pulse</i></string>
+    <string name="no_icon_packs">No se han encontrado paquetes de iconos soportados</string>
+    <string name="accessiblity_description">Servicio de accesibilidad de DashNotifier para leer notificaciones. Ten en cuenta que otros eventos de accesibilidad no son monitorizados y que no se envía información fuera de DashClock</string>
+    <string name="ext_count_dialog_title">Extensiones activas</string>
     <string name="about_body"><![CDATA[Copyright 2013 Umang Vipul. DashNotifier está bajo la licencia MIT.<br> 
         <a href="https://github.com/umanx/dashnotifier">Github</a><br><br> 
          
